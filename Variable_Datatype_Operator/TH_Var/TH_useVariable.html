@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Bai 1</h3>
+    <button type="button" onclick="showResult_1();">Hien Ket Qua Bai 1!</button>
+    <h3>Bai 2</h3>
+    <button type="button" onclick="showResult_2();">Hien Ket Qua Bai 2</button>
+    <h3>Bai 3</h3>
+    <button type="button" onclick="showResult_3();">Hien Ket Qua Bai 3</button>
+    <script>
+        function showResult_1(){
+            let f = 20.5;
+            let b = true;
+            let s = 'Hà Nội';
+            let i = 10;
+            document.write('i = ' + i);
+            document.write('<br/>');
+            document.write('f = ' + f);
+            document.write('<br/>');
+            document.write('b = ' + b);
+            document.write('<br/>');
+            document.write('s = ' + s);
+        }
+        function showResult_2(){
+        let width = 20;
+        let height = 10;
+        let area = width * height;
+        document.write('Area = ' + area +'<br>');}
+        function showResult_3(){
+        let A,B;
+        A=parseInt(prompt("Nhap so A bat ki:"));
+        B=parseInt(prompt("Nhap so B bat ki:"));
+        let result = (A%B) == 0;
+        document.write("B la boi so cua A: 'true'.Nguoc lai B ko phai la boi so cua A: 'false'."+'<br>'+" Ket qua la: " + result +'<br>');
+        }
+    </script>
+</body>
+</html>

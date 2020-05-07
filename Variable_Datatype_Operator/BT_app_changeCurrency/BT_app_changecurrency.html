@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            border-radius: 10px;
+            background-color: blue;
+            padding: 5px 15px;
+        }
+        form div{
+            float: left;
+            margin-right: 20px;
+        }
+        #res{
+            clear: both;
+        }
+        #button{
+            margin-top: 50px;
+        }
+    </style>
+    <script src="BT_app_changecurrency.js"></script>
+</head>
+<body>
+    <form>
+    <div>
+        <label for="amount"><h3>Amount</h3></label>
+        <input type="text" name="amount" id="amount" >
+    </div>
+    <div>
+        <label for="cur_1"><h3>From Currency</h3></label>
+        <select name="cur_1" >
+            <option value="1">Việt Nam</option>
+        </select>
+    </div>
+    <div>
+        <label for="cur_2"><h3>To Currency</h3></label>
+        <select name="cur_2">
+            <option value="2">Hoa Kỳ</option>
+        </select>
+    </div>
+    <div id="button">
+        <button type="button" onclick="changeCurrency();">Convert</button>
+    </div>
+    </form>
+    <div id="res">
+        <h3>Result: </h3> <span id="result"> </span>
+    </div>
+</body>
+</html>
