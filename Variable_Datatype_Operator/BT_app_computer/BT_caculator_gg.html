@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function rad(){
+            debugger;
+            
+        }
+    </script>
+    <style>
+        table{
+            table-layout: fixed;
+        }
+        tr, td{
+            
+            width: 50px;
+            height: 25px;
+        }
+        caption{
+            border: 2px solid black;
+            height: 30px;
+            position: relative;
+        }
+        #pic{
+            position: absolute;
+            top: 2px;
+            left: 2px;
+        }
+        #display{
+            position: absolute;
+            left: 25px;
+             top: 2px;
+            width: 90%;
+        }
+        button{
+            width: 50px;
+            border-radius: 10%;
+            background-color: ghostwhite;
+        }
+        .container {
+            display: block;
+            border: 1px solid gray;
+            border-radius: 10%;
+            padding-right: 10px;
+            float: left;
+            box-shadow: 1px 1px 1px 10px inset ghostwhite;
+        }
+        .container input {
+            opacity: 0;
+            height: 0;
+            width: 0;
+            
+        }
+        .checkmark {
+            height: 25px;
+            width: 50px;  
+            color: black;
+            
+        }
+        .container input:checked ~ .checkmark {
+            background-color: #2196F3;
+        }
+
+    </style>
+</head>
+<body>
+    <table>
+        <caption> <div id="screen"> 
+            <img id="pic" src="history-solid.svg" alt="history" width="15px" height="15px" >
+            <input type="text" id="display" disabled>
+            
+        </div> </caption>
+        <tr>
+            <td colspan="2">
+                <label class="container">
+                    <input id="rad" type="radio" name="angle" value="1">
+                    <span class="checkmark">Rad</span>
+                </label>
+                <label class="container">
+                    <input id="deg" type="radio" name="angle" value="2" checked>
+                    <span class="checkmark">Deg</span>
+                </label>
+                
+            </td>
+            <td>
+                <button type="button" onclick="set('3')" name="operator">x!</button>
+            </td>
+            <td>
+                <button type="button" onclick="set('()')" name="operator">(</button>
+            </td>
+            <td>
+                <button type="button" onclick="set(')');" name="operator">)</button>
+            </td>
+            <td>
+                <button type="button" onclick="set('%')" name="operator">%</button>
+            </td>
+            <td>
+                <button type="button" onclick="ac();" name="AC">AC</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" onclick="set('3')" name="operator">Inv</button>
+            </td>
+            <td>
+                <button type="button" onclick="sine();" name="operator">sin</button>
+            </td>
+            <td>
+                <button type="button" onclick="set('3')" name="operator">ln</button>
+            </td>
+            <td>
+                <button class="num" type="button" onclick="set('7');"   name="7">7</button>
+            </td>
+            <td>
+                <button class="num" type="button" onclick="set('8');"  name="8">8</button>
+            </td>
+            <td>
+                <button class="num" type="button" onclick="set('9');"  name="9">9</button>
+            </td>
+            <td>
+                <button type="button" onclick="set('/')" name="operator">/</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" onclick="set('3.14');" name="operator">π</button>
+            </td>
+            <td>
+                <button type="button" onclick="cosine();" name="operator">cos</button>
+            </td>
+            <td>
+                <button type="button" onclick="fLog();" name="operator">log</button>
+            </td>
+            <td>
+                <button class="num" type="button" onclick="set('4');"  name="4">4</button>
+            </td>
+            <td>
+                <button class="num" type="button" onclick="set('5');"  name="5">5</button>    
+            </td>
+            <td>
+                <button class="num" type="button" onclick="set('6');"  name="6">6</button>
+            </td>
+            <td>
+                <button type="button" onclick="set('*');" name="operator">x</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" onclick="set(2.72);" name="operator">e</button>
+            </td>
+            <td>
+                <button type="button" onclick="tangent();" name="operator">tan</button>
+            </td>
+            <td>
+                <button type="button" onclick="sqrRoot();" name="operator">√</button>
+            </td>
+            <td>
+                <button class="num"type="button" onclick="set('1');"  name="1">1</button>
+            </td>
+            <td>
+                <button class="num"type="button" onclick="set('2');"  name="2">2</button>
+            </td>
+            <td>
+                <button class="num"type="button" onclick="set('3');"  name="3">3</button>
+            </td>
+            <td>
+                <button type="button" onclick="set('-');" name="operator">-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" value="" onclick="set(27);" name="operator">Ans</button>
+            </td>
+            <td>
+                <button type="button" onclick=" eexp();" name="operator">EXP</button>
+            </td>
+            <td>
+                <button type="button" onclick="set('**');" name="operator">x<sup>y</sup></button>
+            </td>
+            <td>
+                <button type="button" onclick="set(30);" name="0">0</button>
+            </td>
+            <td>
+                <button type="button" onclick="set(31);" name=".">°</button>
+            </td>
+            <td>
+                <button type="button" onclick="answer()" name="=">=</button>
+            </td>
+            <td>
+                <button type="button" onclick="set('+');" name="operator">+</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        
+        function set(op){
+            document.getElementById("display").value+=op;
+            }
+
+        function sqrRoot() {
+        var tempStore = document.getElementById("display").value;
+        document.getElementById("display").value = eval(Math.sqrt(tempStore));
+
+        }
+
+        function eexp(){
+            var tempStore = document.getElementById("display").value;
+            document.getElementById("display").value = Math.exp (tempStore)
+            
+        }
+        function fLog() {
+        var tempStore = document.getElementById("display").value;
+        document.getElementById("display").value = eval(Math.log(tempStore));
+
+        }
+
+        function tangent() {
+        var tempStore = document.getElementById("display").value;
+        document.getElementById("display").value = eval(Math.tan(tempStore));
+
+        }
+
+        function cosine() {
+        var tempStore = document.getElementById("display").value;
+        document.getElementById("display").value = eval(Math.cos(tempStore));
+
+        }
+
+        function sine() {
+        var tempStore = document.getElementById("display").value;
+        document.getElementById("display").value = eval(Math.sin(tempStore));
+
+        }
+
+        function answer() {
+        var Exp = document.getElementById("display");
+        var Exp1 = Exp.value;
+        var result = eval(Exp1);
+            Exp.value = result;
+        }
+
+        function ac() {
+        
+        document.getElementById("display").value ='';
+        }
+    </script>
+</body>
+</html>

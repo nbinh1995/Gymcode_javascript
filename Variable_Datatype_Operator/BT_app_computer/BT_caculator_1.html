@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+       form{
+           
+           border: 5px solid black;
+           width: 40%;
+           
+       }
+       table{
+           margin: 0 auto;
+       }
+   </style>
+</head>
+<body>
+    <form action="" >
+    <table>
+        <tr>
+            <td colspan="2"> <input type="text" name="num_1" id="num_1"></td>
+            <td colspan="2"> <input type="text" name="num_2" id="num_2"></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="addition();">Addition(+)</button></td>
+            <td><button type="button" onclick="subtraction();">Subtraction(-)</button></td>
+            <td><button type="button" onclick="multiplication();">Multiplication(x)</button></td>
+            <td><button type="button" onclick="division();">Division(/)</button></td>
+        </tr>
+    </table>
+    <h3>Result: </h3> <span id="result"></span>
+    </form>
+    <script>
+        function addition(){
+            let a,b;
+            a= document.getElementById("num_1").value;
+            b= document.getElementById("num_2").value;
+            let res = parseInt(a) + parseInt(b);
+            document.getElementById("result").innerHTML = res;
+        }
+        function subtraction(){
+            let a,b;
+            a= document.getElementById("num_1").value;
+            b= document.getElementById("num_2").value;
+            let res = a-b;
+            document.getElementById("result").innerHTML = res;
+        }
+        function multiplication(){
+            let a,b;
+            a= document.getElementById("num_1").value;
+            b= document.getElementById("num_2").value;
+            let res = a*b;
+            document.getElementById("result").innerHTML = res;
+        }
+        function division(){
+            let a,b;
+            a= document.getElementById("num_1").value;
+            b= document.getElementById("num_2").value;
+            let res = a/b;
+            document.getElementById("result").innerHTML = res;
+        }
+    </script>
+</body>
+</html>
