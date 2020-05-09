@@ -86,16 +86,16 @@
                 
             </td>
             <td>
-                <button type="button" onclick="set('3')" name="operator">x!</button>
+                <button class="operator"type="button" onclick="factorial();" name="operator">x!</button>
             </td>
             <td>
-                <button type="button" onclick="set('()')" name="operator">(</button>
+                <button class="operator"type="button" onclick="set('(');" name="operator">(</button>
             </td>
             <td>
-                <button type="button" onclick="set(')');" name="operator">)</button>
+                <button class="operator"type="button" onclick="set(')');" name="operator">)</button>
             </td>
             <td>
-                <button type="button" onclick="set('%')" name="operator">%</button>
+                <button class="operator"type="button" onclick="set('%');" name="operator">%</button>
             </td>
             <td>
                 <button type="button" onclick="ac();" name="AC">AC</button>
@@ -103,13 +103,13 @@
         </tr>
         <tr>
             <td>
-                <button type="button" onclick="set('3')" name="operator">Inv</button>
+                <button class="operator"type="button" onclick="set('3');" name="operator">Inv</button>
             </td>
             <td>
-                <button type="button" onclick="sine();" name="operator">sin</button>
+                <button class="operator"type="button" onclick="sine();" name="operator">sin</button>
             </td>
             <td>
-                <button type="button" onclick="set('3')" name="operator">ln</button>
+                <button class="operator"type="button" onclick="set('3');" name="operator">ln</button>
             </td>
             <td>
                 <button class="num" type="button" onclick="set('7');"   name="7">7</button>
@@ -121,18 +121,18 @@
                 <button class="num" type="button" onclick="set('9');"  name="9">9</button>
             </td>
             <td>
-                <button type="button" onclick="set('/')" name="operator">/</button>
+                <button class="operator"type="button" onclick="set('/');" name="operator">/</button>
             </td>
         </tr>
         <tr>
             <td>
-                <button type="button" onclick="set('3.14');" name="operator">π</button>
+                <button class="num"type="button" onclick="set('3.14');" name="PI">π</button>
             </td>
             <td>
-                <button type="button" onclick="cosine();" name="operator">cos</button>
+                <button class="operator"type="button" onclick="cosine();" name="operator">cos</button>
             </td>
             <td>
-                <button type="button" onclick="fLog();" name="operator">log</button>
+                <button class="operator"type="button" onclick="fLog();" name="operator">log</button>
             </td>
             <td>
                 <button class="num" type="button" onclick="set('4');"  name="4">4</button>
@@ -144,18 +144,18 @@
                 <button class="num" type="button" onclick="set('6');"  name="6">6</button>
             </td>
             <td>
-                <button type="button" onclick="set('*');" name="operator">x</button>
+                <button class="num"type="button" onclick="set('*');" name="operator">x</button>
             </td>
         </tr>
         <tr>
             <td>
-                <button type="button" onclick="set(2.72);" name="operator">e</button>
+                <button class="num"type="button" onclick="set(2.72);" name="e">e</button>
             </td>
             <td>
-                <button type="button" onclick="tangent();" name="operator">tan</button>
+                <button class="operator"type="button" onclick="tangent();" name="operator">tan</button>
             </td>
             <td>
-                <button type="button" onclick="sqrRoot();" name="operator">√</button>
+                <button class="operator"type="button" onclick="sqrRoot();" name="operator">√</button>
             </td>
             <td>
                 <button class="num"type="button" onclick="set('1');"  name="1">1</button>
@@ -167,43 +167,69 @@
                 <button class="num"type="button" onclick="set('3');"  name="3">3</button>
             </td>
             <td>
-                <button type="button" onclick="set('-');" name="operator">-</button>
+                <button class="operator"type="button" onclick="set('-');" name="operator">-</button>
             </td>
         </tr>
         <tr>
             <td>
-                <button type="button" value="" onclick="set(27);" name="operator">Ans</button>
+                <button type="button" value="" onclick="set(27);" name="ans">Ans</button>
             </td>
             <td>
-                <button type="button" onclick=" eexp();" name="operator">EXP</button>
+                <button class="operator"type="button" onclick=" eexp();" name="operator">EXP</button>
             </td>
             <td>
-                <button type="button" onclick="set('**');" name="operator">x<sup>y</sup></button>
+                <button class="operator"type="button" onclick="set('**');" name="operator">x<sup>y</sup></button>
             </td>
             <td>
-                <button type="button" onclick="set(30);" name="0">0</button>
+                <button class="num"type="button" onclick="set('0');" name="0">0</button>
             </td>
             <td>
-                <button type="button" onclick="set(31);" name=".">°</button>
+                <button class="num"type="button" onclick="set('.');" name=".">°</button>
             </td>
             <td>
-                <button type="button" onclick="answer()" name="=">=</button>
+                <button type="button" onclick="answer();" name="=">=</button>
             </td>
             <td>
-                <button type="button" onclick="set('+');" name="operator">+</button>
+                <button class="operator"type="button" onclick="set('+');" name="operator">+</button>
             </td>
         </tr>
     </table>
     <script>
-        
+        let flag = false;
+        function checknum(btn){
+            if (btn == '3.14'||btn == '7'||btn == '8'||btn == '9'   ) return false;
+            if (btn == '2.72'||btn == '3'||btn == '4'||btn == '5'||btn == '6'    ) return false;
+            if(btn == '0' || btn == '1' ||btn == '2' ||btn == '.' ) return false;
+            return true;
+            
+        }
         function set(op){
-            document.getElementById("display").value+=op;
-            }
+            if(flag === false){
+                document.getElementById("display").value += op;}
+            else if(checknum(op)){
+                flag = false;
+                document.getElementById("display").value += op;
+                }
+            else{
+                flag = false;
+                document.getElementById("display").value ="";
+                document.getElementById("display").value += op;
+            }   
+        }   
 
         function sqrRoot() {
         var tempStore = document.getElementById("display").value;
         document.getElementById("display").value = eval(Math.sqrt(tempStore));
+        }
 
+        function factorial(){
+            let tempStore = parseInt(document.getElementById("display").value);
+            let fac = 1;
+            while(tempStore > 0){
+                fac *= tempStore;
+                tempStore--;
+            }
+            document.getElementById("display").value = fac;
         }
 
         function eexp(){
@@ -211,6 +237,7 @@
             document.getElementById("display").value = Math.exp (tempStore)
             
         }
+
         function fLog() {
         var tempStore = document.getElementById("display").value;
         document.getElementById("display").value = eval(Math.log(tempStore));
@@ -239,11 +266,12 @@
         var Exp = document.getElementById("display");
         var Exp1 = Exp.value;
         var result = eval(Exp1);
+            flag = true;
             Exp.value = result;
         }
 
         function ac() {
-        
+            flag = false;
         document.getElementById("display").value ='';
         }
     </script>
