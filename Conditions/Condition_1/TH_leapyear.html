@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" onclick="leapyear_1();">Code 1</button>
+    <button type="button" onclick="leapyear_2();">Code 2</button>
+    <button type="button" onclick="leapyear_3();">Code 3</button>
+    <script>
+    let year = parseInt(prompt("Enter a year"));
+    //CODE 1
+    function leapyear_1(){
+    if (year % 4 == 0) {
+        if (year % 100 == 0) {
+            if (year % 400 == 0) {
+            alert(year + " is a leap year");
+            } else {
+            alert(year + " is NOT a leap year");
+            }
+        } else {
+        alert(year + " is a leap year");
+    }
+    } else {
+         alert(year + " is NOT a leap year");
+    }
+    }
+    //CODE 2
+    function leapyear_2(){
+    let isLeapYear = false;
+    if (year % 4 == 0) {
+        if (year % 100 == 0) {
+            if (year % 400 == 0) {
+            isLeapYear = true;
+            }
+        } else {
+        isLeapYear = true;
+        }
+    }
+
+    if (isLeapYear) {
+    alert(year + " is a leap year");
+    } else {
+    alert(year + " is NOT a leap year");
+    }
+    }
+    //CODE 3
+    function leapyear_3(){
+    let isLeapYear = false;
+    let isDivisibleBy4 = year % 4 == 0;
+    if (isDivisibleBy4) {
+    let isDivisibleBy100 = year % 100 == 0;
+        if (isDivisibleBy100) {
+        let isDivisibleBy400 = year % 400 == 0;
+            if (isDivisibleBy400) {
+            isLeapYear = true;
+            }
+        } else {
+        isLeapYear = true;
+        }
+    }
+
+    if (isLeapYear) {
+    alert(year + " is a leap year");
+    } else {
+    alert(year + " is NOT a leap year");
+    }
+    }
+    </script>
+</body>
+</html>
