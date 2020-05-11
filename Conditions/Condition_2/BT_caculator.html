@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    table{
+        border-collapse: collapse;
+        border: 2px solid black;
+        margin: 0 auto;
+    }
+     input{
+         width: 30px;
+         height: 20px;
+         color: blue;
+         margin: 5px;
+     }
+     #display{
+         width: 155px;
+        text-align: right;
+     }
+        
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="4"><input type="text" id="display" disabled></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="caculator('1');" value="1"></td>
+            <td><input type="button" onclick="caculator('2');" value="2"></td>
+            <td><input type="button" onclick="caculator('3');" value="3"></td>
+            <td><input type="button" onclick="caculator('+');" value="+"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="caculator('4');" value="4"></td>
+            <td><input type="button" onclick="caculator('5');" value="5"></td>
+            <td><input type="button" onclick="caculator('6');" value="6"></td>
+            <td><input type="button" onclick="caculator('-');" value="-"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="caculator('7');" value="7"></td>
+            <td><input type="button" onclick="caculator('8');" value="8"></td>
+            <td><input type="button" onclick="caculator('9');" value="9"></td>
+            <td><input type="button" onclick="caculator('*');" value="x"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="C();" value="C"></td>
+            <td><input type="button" onclick="caculator('0');" value="0"></td>
+            <td><input type="button" onclick="result();" value="="></td>
+            <td><input type="button" onclick="caculator('/');" value="/"></td>
+        </tr>
+    </table>
+    <script>
+        let flag = true;
+        function caculator(temp){
+            if(flag)
+            document.getElementById("display").value += temp;
+            else if(temp=='+'|| temp=='-'||temp=='*'||temp=='/')
+            {
+                document.getElementById("display").value += temp;
+                flag = true;
+            } else {
+                flag = true;
+                document.getElementById("display").value = "";
+                document.getElementById("display").value += temp;
+            }
+        }
+        function result(){
+            let result = document.getElementById("display").value;
+            document.getElementById("display").value = eval(result);
+            flag = false;
+        }
+        function C(){
+            document.getElementById("display").value = "";
+            flag = true;
+        }
+    </script>
+</body>
+</html>

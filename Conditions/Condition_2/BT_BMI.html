@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            border-radius: 5%;
+            border: 2px dotted black;
+            width: 450px;
+            height: 150px;
+            padding: 20px;
+        }
+        div{
+            margin: 0 auto;
+        }
+        #weight{
+            margin-bottom: 10px;
+        }
+        #in{
+           margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+    <div id="in">    
+    <input type="text" id="weight" name="weight" size="50px" value="Nhập cân nặng của bạn (kilogam)">
+
+    <input type="text" id="height" name="height"  size="50px" value="Nhập chiều cao của bạn(mét)">
+    </div>
+    <div id="out">
+    <input type="button" name="result" value="Result" onclick="caculateBMI();">
+    <input type="text" id="display" name="display" size="50px" disabled>
+    </div>
+    </div>
+    <script>
+        function caculateBMI(){
+            let height = document.getElementById("height").value;
+            let weight = document.getElementById("weight").value;
+            let bmi= (parseFloat(weight) / parseFloat(height)**2).toFixed(1);
+            if(bmi < 18.5)
+            {
+                document.getElementById("display").value = "BMI = "+bmi +" Phân loại: Underweight";
+            } else if(bmi < 25.0 ) 
+            {
+                document.getElementById("display").value = "BMI = "+bmi +" Phân loại: Normal";
+            } else if(bmi < 30)
+            {
+                document.getElementById("display").value = "BMI = "+bmi +" Phân loại: Overweight";
+            } else  document.getElementById("display").value = "BMI = "+bmi +" Phân loại: Obese";
+            
+        }
+    </script>
+</body>
+</html>
