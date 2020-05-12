@@ -47,6 +47,9 @@ Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại co
         p, tr, td{
             font-weight: bold;
         }
+        hr{
+            border: gray 2px solid;
+        }
     </style>
 </head>
 <body>
@@ -99,7 +102,8 @@ Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại co
     <input type="button" value="Ketqua" onclick="bai_7();">
     <div id='bai7'></div>
     <hr>
-    <p>Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0</p>
+    <p>Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không. 
+        Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0</p>
     <input type="button" value="Ketqua" onclick="bai_8();">
     <div id='bai8'></div>
     <hr>
@@ -116,7 +120,16 @@ Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại co
     <img src="img/giadien.png" alt="giadien" width="900px" height="300px"><br>
     <input type="button" value="Ketqua" onclick="bai_10();">
     <div id='bai10'></div>
-
+    <hr>
+    <p>Bài 11: Viết chương trình tính thuế thu nhập cá nhân</p>
+    <input type="button" value="Ketqua" onclick="bai_11();">
+    <div id='bai11'></div>
+    <hr>
+    <p>Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) 
+        khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng</p>
+    <input type="button" value="Ketqua" onclick="bai_12();">
+    <div id='bai12'></div>
+    <hr>
     <script>
         function bai1_2(){
             let from = document.getElementById("from");
@@ -213,9 +226,42 @@ Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại co
         function bai_10(){
             let kwh = +prompt("Nhap so chu dien : ");
             let display = document.getElementById("bai10");
-            if(120 > age && age > 0) display.innerHTML = "Đó là số tuổi của người";
-            else  display.innerHTML = "Đó ko phải là số tuổi của người";
+            let money;
+            const COST_1=1678;
+            const COST_2=1734;
+            const COST_3=2014;
+            const COST_4=2536;
+            const COST_5=2834;
+            const COST_6=2927;
+            if(kwh < 51) money = COST_1*kwh; 
+            else if(kwh <101)  money = (kwh-50)*COST_2 + COST_1*50;
+            else if (kwh <201) money = (kwh-100)*COST_3+COST_1*50 + COST_2*50;
+            else if (kwh <301) money = (kwh-200)*COST_4+COST_1*50 + COST_2*50 +COST_3*100;
+            else if (kwh <401)  money = (kwh-300)*COST_5+COST_1*50 + COST_2*50 +COST_3*100 +COST_4*100;
+            else  money = (kwh-400)*COST_6+ COST_1*50 + COST_2*50 +COST_3*100+COST_4*100+COST_5*100;
+            display.innerHTML = "Số tiền điện phải trả: " +money +" VND";
         }
+
+        function bai_11(){
+            let salary= +prompt("Nhap so a bat ki : ");
+            let display = document.getElementById("bai11");
+            if(salary < 9000000) display.innerHTML="Thu nhập cá nhân chưa đủ điều kiện đóng thuế";
+            else display.innerHTML = "10% thuế thu nhập cá nhân là: "+ salary*0.1;     
+        }   
+
+        function bai_12(){
+            let loan= +prompt("Nhập số tiền vay ngân hàng : ");
+            let month= +prompt("Nhập số tháng vay : ");
+            let rate= +prompt("Nhập lãi suất theo tháng: ");
+            let display = document.getElementById("bai12");
+            let money = loan;
+            for (let i = 1; i <= month; i++){
+                money += money*rate;
+            }
+            display.innerHTML="Số tiền phải trả cho ngân hàng là: "+money+ " VND";
+                 
+        }
+          
     </script>
 </body>
 </html>
