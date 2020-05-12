@@ -1,0 +1,121 @@
+<!-- Bài 1: Nhập vào hai số a và b, và kiểm tra xem a có chia hết cho b hay không
+
+Bài 2: Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10.
+
+Bài 3: Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0
+
+Bài 4: Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó
+
+Bài 5: Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ
+
+Bài 6: Tính hoa hồng nhận được tuỳ theo mức doanh số bán hàng
+
+Bài 7: Tính cước điện thoại cho một hộ gia đình với các thông số đã cho -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        hr{
+            border: 2px dotted black;
+        }
+    </style>
+</head>
+<body>
+    <p>Bài 1: Nhập vào hai số a và b, và kiểm tra xem a có chia hết cho b hay không</p>
+    <input type="button" value="Ketqua" onclick="bai_1();" >
+    <div id='bai1'></div>
+    <hr>
+    <p>Bài 2: Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10</p>
+    <input type="button" value="Ketqua" onclick="bai_2();" >
+    <div id='bai2'></div>
+    <hr>
+    <p>Bài 3: Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0</p>
+    <input type="button" value="Ketqua" onclick="bai_3();" >
+    <div id='bai3'></div>
+    <hr>
+    <p>Bài 4: Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó</p>
+    <input type="button" value="Ketqua" onclick="bai_4();" >
+    <div id='bai4'></div>
+    <hr>
+    <p>Bài 5: Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ</p>
+    <input type="button" value="Ketqua" onclick="bai_5();" >
+    <div id='bai5'></div>
+    <hr>
+    <p>Bài 6: Tính hoa hồng nhận được tuỳ theo mức doanh số bán hàng</p>
+    <input type="button" value="Ketqua" onclick="bai_6();" >
+    <div id='bai6'></div>
+    <hr>
+    <p>Bài 7: Tính cước điện thoại cho một hộ gia đình với các thông số đã cho</p>
+    <input type="button" value="Ketqua" onclick="bai_7();" >
+    <div id='bai7'></div>
+    <script>
+
+    function bai_1(){
+        let a = +prompt("Nhap so a:");
+        let b = +prompt("Nhap so b:");
+        let temp = document.getElementById('bai1');
+        a%b == 0 ?  temp.innerHTML=a + " chia het cho " + b :
+                    temp.innerHTML=a + " khong chia het cho " + b;
+    }
+
+    function bai_2(){
+        let age = +prompt("Nhap tuoi hoc sinh:");
+        let temp = document.getElementById('bai2');
+        age >= 16 ?  temp.innerHTML="Hoc sinh du tuoi hoc lop 10" :
+                    temp.innerHTML="Hoc sinh khong du tuoi hoc lop 10";
+    }
+
+    function bai_3(){
+        let num = +prompt("Nhap so nguyen bat ki:");
+        let temp = document.getElementById('bai3');
+        num > 0 ?  temp.innerHTML=num + " lon hon 0":
+                    num == 0 ? temp.innerHTML="Day la so 0" : temp.innerHTML=num +"nho hon 0";
+    }
+
+    function bai_4(){
+        let num_1 = +prompt("Nhap so nguyen thu nhat:");
+        let num_2 = +prompt("Nhap so nguyen thu 2:");
+        let num_3 = +prompt("Nhap so nguyen thu 3:");
+        let temp = document.getElementById('bai4');
+        let max = num_1;
+        num_2 > max ?  max = num_2: "";
+        num_3 > max ?  max = num_3: "";
+        temp.innerHTML = "So lon nhat la: "+ max;            
+    }
+
+    function bai_5(){
+        let point_1 = +prompt("Nhap diem bai kiem tra:");
+        let point_2 = +prompt("Nhap diem thi giua ki:");
+        let point_3 = +prompt("Nhap diem thi cuoi ki:");
+        let temp = document.getElementById('bai5');
+        let avg = ((point_1 + point_2 + point_3)/3).toFixed(1);
+        
+        avg >= 8.0 ?  temp.innerHTML = "Xep loai gioi" : avg >= 6.5 ? temp.innerHTML = "Xep loai kha" :
+        avg>=4 ? temp.innerHTML = "Xep loai trung binh" : temp.innerHTML = "Xep loai yeu" ;     
+    }
+
+    function bai_6(){
+        let money = +prompt("Nhap doanh thu:" );
+        const RATE_1 = 0.05;
+        const RATE_2 = 0.1;
+        const target= 100000000;
+        let temp = document.getElementById('bai6');
+        money >= target ? temp.innerHTML="Tien hoa hong nhan duoc la: " + (money*RATE_2).toFixed(0) +"VND":
+        temp.innerHTML="Tien hoa hong nhan duoc la: " + (money*RATE_1).toFixed(0)+"VND";
+    }
+
+    function bai_7(){
+        let time = +prompt("Nhap so phut goi" );
+        const RATE_1= 300; //duoi 100p
+        const RATE_2=500; // tren 100p
+        const MIN =100;
+        let temp = document.getElementById('bai7');
+        time >= MIN ? temp.innerHTML= "So tien dien thoai phai tra: " + (MIN*RATE_1+(time - MIN)*RATE_2)+" VND":
+        temp.innerHTML= "So tien dien thoai phai tra: " + (time*RATE_1) +" VND"
+    }
+    </script>
+</body>
+</html>

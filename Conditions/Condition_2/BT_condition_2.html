@@ -1,0 +1,221 @@
+<!-- Bài 1: Chuyển từ độ C sang độ F.
+
+°C  x  9/5 + 32 = °F
+Bài 2: Chuyển từ mét sang feet:
+
+ft =m * 3.2808
+Bài 3: Tính diện tích hình vuông khi biết cạnh a.
+
+Bài 4: Tính diện tích hình  chữ nhật khi biết 02 cạnh a, b.
+
+Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.
+
+Bài 6: Giải phương trình bậc 1.
+
+Bài 7: Giải phương trình bậc 2.
+
+Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0.
+
+Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác. Điều kiện để a,b,c là cạnh của một tam giác là:
+
+a,b,c > 0
+a + b > c
+b + c > a
+a + c > b
+Bài 10: Viết chương trình tính giá điện.
+
+Bài 11: Viết chương trình tính thuế thu nhập cá nhân.
+
+Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        td{
+            width: 200px;
+        }
+        select{
+            width: 100px;
+        }
+        p, tr, td{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <p>Bài 1: Chuyển từ độ C sang độ F.
+
+        °C  x  9/5 + 32 = °F <br>
+        Bài 2: Chuyển từ mét sang feet:
+        
+        ft =m * 3.2808 <br>
+        KetQua</p>
+    <table>
+        <tr>
+            <td>Số lượng quy đổi</td>
+            <td>Đại lượng quy đổi</td>
+            <td>Số lượng tương đương</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="from" id="from"></td>
+            <td>
+                <select name="unit" id="unit">
+                    <option value="0">Chon unit</option>
+                    <option value="1">C--->F</option>
+                    <option value="2">F--->C</option>
+                    <option value="3">ft--->m</option>
+                    <option value="4">m--->ft</option>
+                </select>
+            </td>
+            <td><input type="text" name="to" id="to" disabled></td>
+        </tr>
+    </table><br>
+    <input type="button" value="Convert" onclick="bai1_2();" >
+    <hr>
+    <p>Bài 3: Tính diện tích hình vuông khi biết cạnh a.</p>
+    <input type="button" value="Ketqua" onclick="bai_3();" >
+    <div id='bai3'></div>
+    <hr>
+    <p>Bài 4: Tính diện tích hình  chữ nhật khi biết 02 cạnh a, b.</p>
+    <input type="button" value="Ketqua" onclick="bai_4();" >
+    <div id='bai4'></div>
+    <hr>
+    <p>Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.</p>
+    <input type="button" value="Ketqua" onclick="bai_5();" >
+    <div id='bai5'></div>
+    <hr>
+    <p>Bài 6: Giải phương trình bậc 1 (Ax + B = 0)</p>
+    <input type="button" value="Ketqua" onclick="bai_6();">
+    <div id='bai6'></div>
+    <hr>
+    <p>Bài 7: Giải phương trình bậc 2(Ax^2 +Bx+C=0)</p>
+    <input type="button" value="Ketqua" onclick="bai_7();">
+    <div id='bai7'></div>
+    <hr>
+    <p>Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0</p>
+    <input type="button" value="Ketqua" onclick="bai_8();">
+    <div id='bai8'></div>
+    <hr>
+    <p>Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác.<br> 
+        Điều kiện để a,b,c là cạnh của một tam giác là: <br>
+        a,b,c > 0 <br>
+        a + b > c  <br>
+        b + c > a  <br>
+        a + c > b</p>
+    <input type="button" value="Ketqua" onclick="bai_9();">
+    <div id='bai9'></div>
+    <hr>
+    <p>Bài 10: Viết chương trình tính giá điện.</p>
+    <img src="img/giadien.png" alt="giadien" width="900px" height="300px"><br>
+    <input type="button" value="Ketqua" onclick="bai_10();">
+    <div id='bai10'></div>
+
+    <script>
+        function bai1_2(){
+            let from = document.getElementById("from");
+            let to=document.getElementById("to");
+            let unit = document.getElementById("unit");
+            const RATE = 3.2808;
+            switch(unit.value){
+            case '1': to.value = (+(from.value)*9/5 +32).toFixed(1); 
+                break;
+            case '2': to.value = ((+(from.value) - 32)*5/9).toFixed(1);
+                break;
+            case '3': to.value = (+from.value/RATE).toFixed(4); 
+                break;
+            case '4': to.value = (+from.value*RATE).toFixed(4); 
+                break;
+            default: alert("chon dai luong chuyen doi") ;   
+            }
+        }
+
+        function bai_3(){
+            let a = +prompt("Nhap canh hinh vuong: ");
+            let display = document.getElementById("bai3");
+            display.innerHTML = "Dien tich hinh vuong là : "+ a*a;
+        }
+
+        function bai_4(){
+            let a = +prompt("Nhap canh hinh chu nhat: ");
+            let b = +prompt("Nhap canh hinh chu nhat: ");
+            let display = document.getElementById("bai4");
+            display.innerHTML = "Dien tich hinh chu nhat là : "+ a*b;
+        }
+        
+        function bai_5(){
+            let a = +prompt("Nhap canh ke tam giac vuong: ");
+            let b = +prompt("Nhap canh ke tam giac vuong: ");
+            let display = document.getElementById("bai5");
+            display.innerHTML = "Dien tich tam giac vuong là : "+ a*b/2;
+        }
+
+        function bai_6(){
+            let a = +prompt("Nhap he so A : ");
+            let b = +prompt("Nhap he so B: ");
+            let display = document.getElementById("bai6");
+            if (a == 0){
+                if(b == 0) display.innerHTML = "Phương trình vô số nghiệm"; 
+                else display.innerHTML = "Phương trình vô nghiệm"; 
+            }
+            else{ 
+                if(b == 0) display.innerHTML = "Phương trình có 1 nghiện: x=0";
+                else display.innerHTML = "Phương trình có 1 nghiện: x= "+ (-b/a).toFixed(1); 
+            }
+        }
+
+        function pt_1(a, b , display){
+            if (a == 0){
+                if(b == 0) display.innerHTML = "Phương trình vô số nghiệm"; 
+                else display.innerHTML = "Phương trình vô nghiệm"; 
+            }
+            else{ 
+                if(b == 0) display.innerHTML = "Phương trình có 1 nghiện: x=0";
+                else display.innerHTML = "Phương trình có 1 nghiện: x= "+ (-b/a).toFixed(1); 
+            }
+        }
+        function bai_7(){
+            let a = +prompt("Nhap he so A : ");
+            let b = +prompt("Nhap he so B: ");
+            let c = +prompt("Nhap he so C: ");
+            let display = document.getElementById("bai7");
+            if(a == 0) pt_1(b,c,display); else {
+                let delta = b*b - 4*a*c;
+                if (delta < 0) display.innerHTML = "Phương trình vô nghiệm";
+                if (delta == 0) display.innerHTML = "Phương trình có nghiệm kép: x1 = x2 = "+ (-b/(2*a));
+                if (delta > 0 ) display.innerHTML = "Phương trình có 2 nghiệm: x1 = "+((-b+Math.sqrt(delta))/2)+" ,x2 = "+((-b-Math.sqrt(delta))/2);
+            }
+        }
+
+        function bai_8(){
+            let age = +prompt("Nhap tuoi : ");
+            let display = document.getElementById("bai8");
+            if(120 > age && age > 0) display.innerHTML = "Đó là số tuổi của người";
+            else  display.innerHTML = "Đó ko phải là số tuổi của người";
+        }
+
+        function bai_9(){
+            let a = +prompt("Nhap so a bat ki : ");
+            let b = +prompt("Nhap so b bat ki : ");
+            let c = +prompt("Nhap so c bat ki : ");
+            let display = document.getElementById("bai9");
+            if( a>0 && b>0 && c>0 && (a+b)>c && (b+c)>a && (a+c)>b) 
+            display.innerHTML = a +" , "+ b+ " , "+ c+" la 3 cạnh tam giac";
+            else display.innerHTML = a +" , "+ b+ " , "+ c+" ko phai la 3 cạnh tam giac";
+        }
+
+        function bai_10(){
+            let kwh = +prompt("Nhap so chu dien : ");
+            let display = document.getElementById("bai10");
+            if(120 > age && age > 0) display.innerHTML = "Đó là số tuổi của người";
+            else  display.innerHTML = "Đó ko phải là số tuổi của người";
+        }
+    </script>
+</body>
+</html>

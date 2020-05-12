@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            border: black 3px solid;
+            box-shadow: 1px 1px 5px red;
+        }
+    </style>
+</head>
+<body >
+    <img id="img_1" src="img/1st_1.png" alt="anh_1" onclick="changeimg_1();">
+    <img id="img_2" src="img/2nd_2.png" alt="anh_2" onclick="changeimg_2();">
+    <img id="img_3" src="img/3rd_1.png" alt="anh_3" onclick="changeimg_3();">
+    <script>
+        
+        function changeimg_1(){
+            let img_1 = "http://127.0.0.1:5500/img/1st_2.png";
+            let img_2 ="http://127.0.0.1:5500/img/1st_1.png";
+            let display = document.getElementById("img_1").src;
+            if (display == img_1) document.getElementById("img_1").src = img_2; 
+            else document.getElementById("img_1").src = img_1;
+        }
+        function changeimg_2(){
+            let img_1 = "http://127.0.0.1:5500/img/2nd_2.png";
+            let img_2 ="http://127.0.0.1:5500/img/2nd_1.png";
+            let display = document.getElementById("img_2").src;
+            if (display == img_1) document.getElementById("img_2").src = img_2; 
+            else document.getElementById("img_2").src = img_1;
+        }
+        function changeimg_3(){
+            let img_1 = "http://127.0.0.1:5500/img/3rd_2.png";
+            let img_2 ="http://127.0.0.1:5500/img/3rd_1.png";
+            let display = document.getElementById("img_3").src;
+            if (display == img_1) document.getElementById("img_3").src = img_2; 
+            else document.getElementById("img_3").src = img_1;
+        }
+        window.onload = init;
+    </script>
+</body>
+</html>
