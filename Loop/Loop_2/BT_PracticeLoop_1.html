@@ -1,0 +1,172 @@
+<!-- Bài 1: Sử dụng vòng lặp để đếm từ 1 đến 100. Khi số là 99, hiển thị hộp thoại thông báo là đã hoàn thành.
+Bài 2: Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập. Nếu nhiệt độ nhập vào trên 100, yêu cầu người dùng giảm nhiệt độ. Nếu nhiệt độ dưới 20, yêu cầu người dùng tăng nhiệt độ.
+Bài 3: Hiển thị ra 20 số trong dãy fibonacci đầu tiên.
+
+Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.
+
+Bài 5: Tính tổng của 20 số đầu tiên trong dãy fibonacci.
+
+Bài 6: Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.
+
+Bài 7: Hãy viết một chương trình in ra các số từ 1 đến 100. Nhưng nếu số chia hết cho 3 thì in ra "Fizz", 5 thì in ra "Buzz" thay vì in ra số đó. Và nếu số đó chia hết cho cả 3 và 5 thì in ra chữ "FizzBuzz".
+
+Bài 8: Game đoán số
+
+Nâng cấp game "Hãy thử đoán xem!"
+
+1. Thiết kế giao diện: Giao diện chỉ gồm 1 Button "Chơi": cho phép người dùng bắt đầu  chơi hoặc chơi lại  
+
+2. Mô tả ứng dụng: Khi người dùng nhấn vào button “Chơi”:
+
+Ứng dụng hiển thị cửa sổ prompt cho phép người dùng nhập vào muốn đoán trong khoảng nào
+Ứng dụng chọn ra số ngẫu nhiên trong khoảng mà ngườI dùng chọn  
+Ứng dụng hiển thị cửa số prompt cho người dùng nhập giá trị mà người dùng đoán  
+Ứng dụng lấy kết quả và so sánh với giá trị ngẫu nhiên.
+Nếu bằng thì hiển thị thông báo chúc mừng và kết thúc lượt chơi  
+Nếu lớn hơn hoặc bé thua thì hiển thị thông báo lớn hơn hay bé thua và cho phép người dùng lựa chọn lại.
+Chú ý: Người dùng chỉ được lựa chọn tối đa ba lần -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Bài 1: Sử dụng vòng lặp để đếm từ 1 đến 100. Khi số là 99, hiển thị hộp thoại thông báo là đã hoàn thành.</p>
+    <input type="button" value="Thực hiện" onclick="bai_1();">
+    <hr>
+    <p>Bài 2: Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập. 
+        Nếu nhiệt độ nhập vào trên 100, yêu cầu người dùng giảm nhiệt độ. 
+        Nếu nhiệt độ dưới 20, yêu cầu người dùng tăng nhiệt độ</p>
+    <input type="button" value="Thực hiện" onclick="bai_2();">
+    <hr>
+    <p>Bài 3: Hiển thị ra 20 số trong dãy fibonacci đầu tiên.</p>
+    <input type="button" value="Thực hiện" onclick="bai_3();">
+    <hr>
+    <p>Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.</p>
+    <input type="button" value="Thực hiện" onclick="bai_4();">
+    <hr>
+    <p>Bài 5: Tính tổng của 20 số đầu tiên trong dãy fibonacci.</p>
+    <input type="button" value="Thực hiện" onclick="bai_5();">
+    <hr>
+    <p>Bài 6: Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.</p>
+    <input type="button" value="Thực hiện" onclick="bai_6();">
+    <hr>
+    <p>Bài 7: Hãy viết một chương trình in ra các số từ 1 đến 100. 
+    Nhưng nếu số chia hết cho 3 thì in ra "Fizz", 5 thì in ra "Buzz" thay vì in ra số đó. 
+    Và nếu số đó chia hết cho cả 3 và 5 thì in ra chữ "FizzBuzz"</p>
+    <input type="button" value="Thực hiện" onclick="bai_7();">
+    <div id="bai7"></div>
+    <hr>
+    <p>Bài 8: Game đoán số
+        <br>
+        Nâng cấp game "Hãy thử đoán xem!"
+        <br>
+        1. Thiết kế giao diện: Giao diện chỉ gồm 1 Button "Chơi": cho phép người dùng bắt đầu  chơi hoặc chơi lại  
+        <br>
+        2. Mô tả ứng dụng: Khi người dùng nhấn vào button “Chơi”:
+        <br>
+        Ứng dụng hiển thị cửa sổ prompt cho phép người dùng nhập vào muốn đoán trong khoảng nào <br>
+        Ứng dụng chọn ra số ngẫu nhiên trong khoảng mà ngườI dùng chọn   <br>
+        Ứng dụng hiển thị cửa số prompt cho người dùng nhập giá trị mà người dùng đoán   <br>
+        Ứng dụng lấy kết quả và so sánh với giá trị ngẫu nhiên. <br>
+        Nếu bằng thì hiển thị thông báo chúc mừng và kết thúc lượt chơi   <br>
+        Nếu lớn hơn hoặc bé thua thì hiển thị thông báo lớn hơn hay bé thua và cho phép người dùng lựa chọn lại. <br>
+        Chú ý: Người dùng chỉ được lựa chọn tối đa ba lần</p>
+    <input type="button" value="Chơi" onclick="bai_8();">
+    <script>
+        function bai_1(){
+            let i;
+           for( i=0;i<100;i++) {
+
+           } alert("Completed!");
+        }
+
+        function bai_2(){
+            let temperature;
+           while(1){
+            temperature = +prompt("Nhập nhiệt độ: ");
+            if(temperature <20 ) alert("Tăng nhiệt độ!");
+            else if(temperature>100) alert("Giảm nhiệt độ!"); 
+            else {alert("nhiệt dộ phù hợp!"); break};
+           }  
+        }
+        function fibonacci(num){
+            if(num<=1) return 1;
+            return fibonacci(num-1) +fibonacci(num-2);
+        }
+        
+        function bai_3(){
+            let text="";
+            for(let i= 0; i<20; i++)
+            {
+            if(i==19)text+=fibonacci(i);else text+=fibonacci(i)+' , ';
+            }alert("Dãy 20 số fibonacci đầu tiền: " + text);   
+        }
+
+        function bai_4(){
+            let count=0;
+            while(1)
+            {
+            if(fibonacci(count) % 5){
+                count++;
+            }else{
+                alert("Số đầu tiền trong dãy fibonacci chia hết cho 5 là: " + fibonacci(count));
+                break; 
+            }
+            }  
+        }
+
+        function bai_5(){
+            let sum=0;
+            for(let i= 0; i<20; i++)
+            {
+                sum += fibonacci(i);
+            }alert("Tổng 20 số fibonacci đầu tiền: " + sum);   
+        }
+        
+        function bai_6(){
+            let sum = 0;
+            let N =0;
+            let count=0;
+            while(1){
+               if(N % 7) N++; else {count++; sum +=N; N++}
+               if(count == 29) break;
+            }  alert("Tổng 30 số tự nhiên đầu tiên chia hết cho 7 là: "+ sum);
+        }
+
+        function bai_7(){
+            let text ="";
+            let display= document.getElementById("bai7");
+           for(let i = 1;i<101;i++){
+                if (!(i % 3)) 
+                    if(!(i%5))  text += "FizzBuzz | ";
+                    else text +=  "Fizz | ";
+                else 
+                    if (!(i%5)) text += "Buzz | ";  
+                    else text += i + ' | ';
+            } 
+            display.innerHTML = "Kết quả hiển thị là: " +text;
+        }
+
+        function bai_8(){
+            alert("Let's play game!");
+            let limitmin = +prompt("Nhập giới hạn dưới: ");
+            let limitmax = +prompt("Nhập giới hạn trên: ");
+            debugger;
+            let bingo = (Math.random()*(limitmax - limitmin) + limitmin).toFixed(0);
+            let guess;
+            let count = 0;
+            do{ 
+                guess = +prompt("Nhập số bạn đoán: ");
+                if( guess < bingo) { alert("Nhỏ rui! Tăng lên đi!"); count++;}
+                else if(guess > bingo) {alert("Lớn hơn rui! Giảm xuống đi!"); count++}
+                else {alert("Bingo!!!! Chúc mừng bạn là người chiến thắng ^-^"); break;}
+                if(count == 3) {alert("Gameover!!!! Số bingo là: "+ bingo); break;}
+            }while(1)
+        }
+
+    </script>
+</body>
+</html>

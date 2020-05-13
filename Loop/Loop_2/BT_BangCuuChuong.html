@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let table = "<h2>BẢNG CỬU CHƯƠNG</h2><table border='1px double black' width='700px' cellspacing='0' cellpadding='3'>";
+    for(let row=1 ;row <10; row++ ){
+        table = table + "<tr>";
+        for(let col =2; col < 10; col++){
+            table = table + "<td>" +col+" x "+row+" = "+(col*row)+"</td>";
+        } 
+        table = table + "</tr>";
+    }
+    table = table + "</table>";
+    document.write(table);
+    </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!-- Bài 1: In dãy Finonaci
+
+Bài 2: Tính giai thừa của một số nguyên dương
+
+Bài 3: In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau
+
+Bài 4: In hình chữ nhật
+
+Bài 5: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.
+
+Bài 6: In hình trái tim -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Bài 1: In dãy Fibonaci</p>
+    <input type="button" onclick="bai_1();" value="Kết Quả">
+    <hr>
+    <p>Bài 2: Tính giai thừa của một số nguyên dương</p>
+    <input type="button" onclick="bai_2();" value="Kết Quả">
+    <hr>
+    <p>Bài 3: In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau</p>
+    <input type="button" onclick="bai_3();" value="Kết Quả">
+    <div id="bai3"></div>
+    <hr>
+    <p>Bài 4: In hình chữ nhật</p>
+    <input type="button" onclick="bai_4();" value="Kết Quả">
+    <div id="bai4"></div>
+    <hr>
+    <p>Bài 5: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) 
+        khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng</p>
+    <input type="button" onclick="bai_5();" value="Kết Quả">
+    <hr>
+    <p>Bài 6: In hình trái tim</p>
+    <input type="button" onclick="bai_6();" value="Kết Quả">
+    <div id="bai6"></div>
+    
+    <script>
+
+     function bai_1(){
+         let num = 0, num_next = 1, text = "";
+         let amount = +prompt("Nhập số lượng số Fibonaci cần in: ");
+         let N = amount;
+         while(N >= 0){
+        let temp = num_next;
+             num_next += num;
+             num = temp;
+             if(N) text += temp + " , "; else text += temp;
+             N--; 
+         }
+         alert(amount +" so fibonaci đầu tiên là: " + text);
+     }
+
+     function bai_2(){
+         let base = +prompt("Nhập cơ số giai thừa muốn tính: ");
+         let factorial = 0;
+         if (base == 0) factorial = 1; 
+        else{
+            for(let i = base; i > 0; i--)
+            {
+                factorial += i ;
+            }
+        }
+        alert(base+"! = "+factorial);
+         }  
+
+         function bai_3(){
+         let text="";
+         let display = document.getElementById("bai3");
+        //-------------------------------------
+         for (let row=1;row<=5;row++){
+             for(let col=1;col<=row;col++){
+                text += " *"; 
+             }
+             text += "<br>"; 
+         }
+         text += "<hr>"
+         //--------------------------
+         for (let row=1;row<=5;row++){
+             for(let col=5;col>=row;col--){
+                text += " *"; 
+             }
+             text += "<br>"; 
+         }
+         text +="<hr>";
+         //-------------------------------
+         for (let row=1;row<=5;row++){
+            for(let col=5;col>row;col--){
+                text += "&nbsp&nbsp ";
+             }
+            for(let col=1;col<=row;col++){
+                text += " *"; 
+             }
+             
+             text += "<br>"; 
+         }
+         text +="<hr>";
+         //-------------------------------
+         for (let row=1;row<=5;row++){
+             for(let col=1;col<row;col++){
+                text += "&nbsp&nbsp "; 
+             }
+             for(let col=5;col>=row;col--){
+                text += " *"; 
+             }
+             text += "<br>"; 
+         }
+         
+         //-----------------------------
+         display.innerHTML= text;
+         }
+
+        function bai_4(){
+            let text="";
+            let display = document.getElementById("bai4");
+            for(let row = 1; row <=7; row++){
+                if(row == 1 || row == 7)
+                    for(let col = 1; col<=21; col++){
+                    text +=" *";
+                }else{
+                    for(let col = 1; col<=21; col++){
+                        if(col==1 || col == 21) text +=" *";
+                        else text+=" &nbsp&nbsp ";
+                    }
+                }
+                text +="<br>";
+             }
+             display.innerHTML = text;
+        }
+
+        function bai_5(){
+            let loan= +prompt("Nhập số tiền vay ngân hàng : ");
+            let month= +prompt("Nhập số tháng vay : ");
+            let rate= +prompt("Nhập lãi suất theo tháng: ");
+            let money = loan;
+            for (let i = 1; i <= month; i++){
+                money += money*rate;
+            }
+            alert("Số tiền phải trả cho ngân hàng là: "+(money).toFixed()+ " VND");
+        }
+
+        function bai_6(){
+            let text="";
+            let display = document.getElementById("bai6");
+            //hinh thang can ""
+            for (let row=2;row>=1;row--){
+                for(let col=1;col<row;col++){
+                text += "&nbsp&nbsp ";
+                }
+                for(let col=row;col<=12-row;col++){
+                text += " *";
+                }
+             
+             text += "<br>"; 
+            }
+            //tam giac can
+            for (let row=1;row<=6;row++){
+                for(let col=1;col<row;col++){
+                    text+=" &nbsp&nbsp ";
+                }
+                for(let col=row;col<=(6*2-row);col++){
+                text += " *";
+             }
+             
+             text += "<br>"; 
+         }
+         display.innerHTML=text;
+        }
+    </script>
+</body>
+</html>

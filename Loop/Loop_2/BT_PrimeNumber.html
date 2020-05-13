@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let count = 0;
+    let text ="";
+    let N= 2;
+    let num = +prompt("Nhap so lượng nguyên tố cần in: ");
+    while (count < num) {
+        if (N < 2){
+            N++;
+           continue; 
+        }
+    else{
+        for (let i = 2; i < N-1; i++)
+        {
+            if (N % i == 0){ 
+                N++;
+                continue;
+        }}
+        if(count == num-1) text += N ; else text += N + ' , ';
+        count++;
+        N++;
+        }
+        }
+        document.write(num+" số nguyên tố đầu tiên cần in: "+text);
+    </script>
+</body>
+</html>
