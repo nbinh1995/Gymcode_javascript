@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <hr>
+    <H2>TWO FOR</H2>
+    <input type="button" value="twofor" onclick="twofor();">
+    <div id='twofor'></div>
+    <hr>
+    <H2>TWO WHILE</H2>
+    <input type="button" value="twofor" onclick="twowhile();">
+    <div id='twowhile'></div>
+    <script>
+        function twofor(){
+        let sout;
+        let display = document.getElementById("twofor");
+        sout = "<table border='1' width='300' cellspacing='0' cellpadding='3'>"
+        for (i = 1; i <= 10; i++) {
+            sout = sout + "<tr>";
+            for (j = 1; j <= 10; j++) {
+                sout = sout + "<td>" + i * j + "</td>";
+            }
+            sout = sout + "</tr>";
+        }
+        sout = sout + "</table>";
+        display.innerHTML=sout;
+        }
+        function twowhile(){
+            let sout, i, j;
+            let display = document.getElementById("twowhile");
+            sout = "<table border='1' width='300' cellspacing='0' cellpadding='3'>";
+            i = j = 1;
+            while (i <= 10) {
+                sout = sout + "<tr>";
+                while (j <= 10) {
+                    sout = sout + "<td>" + i * j + "</td>";
+                    j++;
+                }
+                sout = sout + "</tr>";
+                j = 1;
+                i++;
+            }
+            sout = sout + "</table>";
+            display.innerHTML=sout;
+        }
+        </script>
+</body>
+</html>

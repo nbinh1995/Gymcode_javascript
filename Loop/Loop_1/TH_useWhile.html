@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    hr{
+        border: 2px solid black;
+    }
+    </style>
+</head>
+<body>
+    <p>Bài 1: Viết chương trình nhận vào một số từ hộp thoại, 
+     việc nhập kết thúc khi người dùng nhập vào giá trị -1. 
+     Mỗi giá trị nhập được sẽ được hiển thị ra và thực hiện tính tổng các giá trị đó. </p>
+    <input type="button" value="Ket qua" onclick="bai1();">
+    <p id="bai1"></p>
+    <p>Bài 2: Viết chương hình hiển thị thẻ "hr" theo độ rộng từ 1 đến 100.</p>
+    <input type="button" value="Ket qua" onclick="bai2();">
+    <span id="bai2"></span> 
+    <script>
+        function bai1(){
+        let num;
+        let sum=0;
+        let text=""; 
+        let display = document.getElementById("bai1");
+        while(num != -1){
+            num = +prompt("Nhập số nguyên bất kì(-1=exit) : ");
+            if(num != -1){
+            text += num + ' , ';
+            sum +=num; }
+        }
+        display.innerHTML= "Dãy số nhập vào là: " + text + '<br>' + "Tổng các số là: "+sum;
+        }
+
+        function bai2(){
+        let display = document.getElementById("bai2");
+        let width = 1;
+        let text ="";
+        debugger;
+        while(width<100){
+            text += "<hr width = "+width+"%>"+'<br>';
+            width++;
+        }
+        display.innerHTML=text;
+        }
+    </script>
+</body>
+</html>
