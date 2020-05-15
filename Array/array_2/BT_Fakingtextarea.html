@@ -9,7 +9,7 @@
     <center>
     <h1>Type anythinh slowly</h1>
     
-        <textarea id="display" cols="40" rows="10" onkeydown="showtext();"></textarea>    
+        <textarea id="display" cols="40" rows="10" ></textarea>    
         
     </center>
     <script>
@@ -17,10 +17,9 @@
         let show="TÔI LÀ MỘT ĐỨA NGỐC !!"
         let text="";
         let display = document.getElementById("display");
-        function showtext(){
-        debugger
-        let temp = display.value.length;    
-        if(temp > 0){
+        display.addEventListener("keydown",showtext());
+        function showtext(){   
+        if(display.value.length > 0){
             for(let i = 0; i <temp; i++){
                 text +=show[i];
                 if(i==22) {
