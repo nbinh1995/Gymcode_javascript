@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+        }
+    </style>
+<body>
+    <h1>DICTIONARY</h1>
+    <hr>
+    <form action="">
+        <input type="text" id="in">
+    <select id="selectmode">
+        <option value="1">ENG-VN</option>
+        <option value="0">VN-ENG</option>
+    </select>
+    <input type="text" id="out" disabled > 
+    <input type="button" value="Search" onclick="findword();">
+    </form>
+    <hr>
+    <script>
+    let eng = new Array('dog','cat','boy','girl');
+    let vn = ['con chó','con mèo','bé trai','bé gái'];
+    let mode = document.getElementById("selectmode");
+    let intext = document.getElementById("in");
+    let outtext = document.getElementById("out"); 
+    function findword(){
+        if (+mode.value){
+            let flag;
+            for(let i =0; i<eng.length;i++){
+                
+                if(eng[i] === intext.value) {outtext.value = vn[i];flag=0; break;} else flag =1;
+            }if(flag) {alert("Từ điển ko có từ này!"); outtext.value = "";}
+        }else { let flag;
+            for(let i =0; i<vn.length;i++){
+                
+                if(vn[i] === intext.value) {outtext.value = eng[i];flag=0; break;}else flag =1; 
+            }if(flag) {alert("Từ điển ko có từ này!");outtext.value = "";}
+        }
+    }
+
+    </script>
+</body>
+</html>

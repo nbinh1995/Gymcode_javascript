@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <h1>Type anythinh slowly</h1>
+    
+        <textarea id="display" cols="40" rows="10" onkeydown="showtext();"></textarea>    
+        
+    </center>
+    <script>
+        
+        let show="TÔI LÀ MỘT ĐỨA NGỐC !!"
+        let text="";
+        let display = document.getElementById("display");
+        function showtext(){
+        debugger
+        let temp = display.value.length;    
+        if(temp > 0){
+            for(let i = 0; i <temp; i++){
+                text +=show[i];
+                if(i==22) {
+                    display.value="";
+                    text ="";
+                }
+            }
+        }    
+        display.value = text;
+        text=""; 
+        setTimeout("showtext()",1);
+        }
+    </script>
+</body>
+</html>

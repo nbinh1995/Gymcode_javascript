@@ -1,0 +1,136 @@
+<!-- Bài 1: Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn,  in ra các phần tử trong mảng. Chú ý: Sử dụng vòng lặp for lồng nhau
+
+Bài 2: Viết một chương trình để in các ký tự trong một mảng theo thứ tự đảo ngược. Ví dụ, nếu một mảng chứa các ký tự  {'c', 's', 'c', '2', '6', '1'} sau khi thực hiện đảo ngược sẽ là "162csc"
+
+Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng. Chương trình này đếm số ký tự số trong mảng. 
+
+Bài 4: Viết một chương trình để đếm số từ trong một chuỗi
+
+Bài 5: Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.
+
+Bài 6: Viết chương trình nhập vào một mảng ký tự, tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này bởi ký tự ( _ ) -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Bài 1: Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn,  in ra các phần tử trong mảng. 
+        Chú ý: Sử dụng vòng lặp for lồng nhau <br>
+        a = [ <br>
+        [1, 2, 1, 24], <br>
+        [8, 11, 9, 4], <br>
+        [7, 0, 7, 27], <br>
+        [7, 4, 28, 14], <br>
+        [3, 10, 26, 7] <br>
+        ]; <br></p>
+    <input type="button" value="Kết quả" onclick="bai_1();">
+    <div id="bai1"></div>
+    <hr>
+    <p>Bài 2: Viết một chương trình để in các ký tự trong một mảng theo thứ tự đảo ngược. 
+        Ví dụ, nếu một mảng chứa các ký tự  {'c', 's', 'c', '2', '6', '1'} sau khi thực hiện đảo ngược sẽ là "162csc"</p>
+    <input type="button" value="Kết quả" onclick="bai_2();">
+    <hr>
+    <p>Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng.
+         Chương trình này đếm số ký tự số trong mảng. </p>
+    <input type="button" value="Kết quả" onclick="bai_3();">
+    <hr>
+    <p>Bài 4: Viết một chương trình để đếm số từ trong một chuỗi </p>
+   <input type="button" value="Kết quả" onclick="bai_4();"> 
+   <hr>
+    <p>Bài 5: Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.</p>
+   <input type="button" value="Kết quả" onclick="bai_5();">  
+   <hr>
+    <p>Bài 6: Viết chương trình nhập vào một mảng ký tự, 
+        tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này bởi ký tự ( _ )</p>
+   <input type="button" value="Kết quả" onclick="bai_6();">  
+    <script>
+        
+        function bai_1(){
+            let text = "";
+            let display = document.getElementById("bai1");
+            let a = [
+                [1,2,1,24],
+                [8,11,9,4],
+                [7,0,7,27],
+                [7,4,28,14],
+                [3,10,26,7]
+            ];
+            for(let i = 0 ; i<a.length;i++){
+                text += "row "+i +"<br>";
+                for(let j =0; j< a[i].length; j++){
+                    text += a[i][j] +"<br>";
+                }
+            }
+            display.innerHTML = text;
+        }
+        //------------------------------------------------------------------
+        function bai_2(){
+            let arr = [];
+            let rev =[];
+            let amount = +prompt("Nhập số phần tử của mãng: ");
+            for (let i =0; i<amount;i++){
+                arr[i]= prompt("Nhập phần tử của mảng: ");
+            }
+            rev = arr.reverse();
+            alert("Đảo các phần tử trong mãng ta có mảng sau: "+ rev.join(''));
+        }
+        //---------------------------------------------------------------------
+        function bai_3(){
+            let arr = [];
+            let count = 0;
+            let amount = +prompt("Nhập kích thước của mãng: ");
+            for (let i =0; i<amount;i++){
+                arr[i]= prompt("Nhập phần tử của mảng: ");
+            }
+            for (let i =0; i<amount;i++){
+                let temp = parseInt(arr[i]);
+                if( isNaN(temp)) continue; else count++; 
+            }
+            alert("Số ký tự số trong mãng: "+ count);
+        }
+        //---------------------------------------------------------------------
+        function bai_4(){
+            let str = prompt("Nhập chuỗi cần đếm từ: ");
+            
+            let count = str.split(" ").length;
+            alert("Số từ trong chuỗi: " + count);
+        }
+        //-----------------------------------------------
+        function bai_5(){
+            alert("Chuỗi 1 !!!!! ");
+            let a = prompt("Nhập chuỗi 1: ");
+            alert("Chuỗi 2 !!!!! ");
+            let b = prompt("Nhập chuỗi 2: ");
+            if (a.length != b.length){alert("Chuổi 1 khác chuổi 2");} else{
+                a.normalize('NFC');
+                b.normalize('NFC');
+                if (a === b){ alert("Chuổi 1 giống chuổi 2");} else alert("Chuổi 1 khác chuổi 2");
+            }
+        }
+        //---------------------------------------------------------
+        function bai_6(){
+            let arr =[];
+            let text_1 = "";
+            let text_2 = "";
+            alert("Nhập kích thước mãng !!!!");
+            let amount = +prompt("Nhập kích thước mãng: ");
+            alert("Nhập mãng ký tự!!!");
+            for (let i =0; i<amount;i++){
+                arr[i]= prompt("Nhập phần tử ký tự của mảng: ");
+            }
+            text_1 += arr.join(' , ');
+            for (let i =0; i<amount;i++){
+                if(arr[i] === '-') arr[i]='_';
+            }
+            text_2 += arr.join(' , ');
+            alert("Mãng cũ chưa thay thế: "+text_1+ " .Mãng mới đã thay thế: "+text_2);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Caro Game</h3>
+    <p>Người đi đầu "X" đi sau "O"( X luon win)</p>
+    <p id="carogame" />
+    <input type="button" value="Change Value" onclick="changeValue()">
+    <script>
+         let flag = false;
+    let positioncell=[
+                        [0,1,2,3,4],
+                      [5,6,7,8,9],
+                      [10,11,12,13,14],
+                      [15,16,17,18,19],
+                      [20,21,22,23,24],
+                      ]
+    let win = [
+        [0,1,2],[0,5,10],[0,6,12],[9,13,17],[1,2,3],[5,10,15],[6,12,18],[13,17,21],[2,3,4],[10,15,20],[12,18,24],
+        [14,18,22],[5,6,7],[1,6,11],[1,7,13],[6,7,8],[6,11,16],[7,13,19],[7,8,9],[11,16,21],[2,8,14],
+        [10,11,12],[2,7,12],[5,11,17],[11,12,13],[7,12,17],[11,17,23],[12,13,14],[12,17,22],[10,16,22],
+        [15,16,17],[3,8,13],[4,8,12],[16,17,18],[8,13,18],[8,12,16],[17,18,19],[13,18,23],[12,16,20],
+        [20,21,22],[4,9,14],[3,7,11],[21,22,23],[9,14,19],[7,11,15],[22,23,24],[14,19,24],[2,6,10]
+        ]
+    let X = [];
+    let O = [];
+        let b = document.getElementById("carogame");
+        
+        let board = [];
+        let data = "";
+        for (let i = 0; i < 5; i++) {
+            board[i] = new Array('(.)', '(.)', '(.)', '(.)', '(.)');
+        }
+        
+        for (let i = 0; i < 5; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 5; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;";
+            }
+        }
+        data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+        b.innerHTML = data;
+   
+    function changeValue() {
+    let positionX = prompt("X: ");
+    let positionY = prompt("Y: ");
+    data = "";
+    let temp = positioncell[positionX][positionY];
+    debugger
+    if(flag) {O.push(temp);}else X.push(temp);
+    if(flag) {board[positionX][positionY] = "O";}else board[positionX][positionY] = "X";
+    
+    for (let i = 0; i < 5; i++) {
+        data += "<br/>";
+        for (let j = 0; j < 5; j++) {
+            data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+        }
+    }
+    data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+    b.innerHTML = "<hr/>" + data;
+    flag = !flag;
+    for(let i =0; i< win.length;i++){
+        let count = 0;
+        if(X.length <3) break;
+        for (let j =0; j<X.length;j++){
+            
+           if(win[i][0]== X[j]) count +=1;
+           if(win[i][1]==X[j]) count +=1;
+           if(win[i][2]==X[j]) count +=1;
+        }
+        if(count == 3) {alert("X winner"); break;}
+        
+    }
+    for(let i =0; i< win.length;i++){
+        if(X.length <3) break;
+        let count = 0;
+        for (let j =0; j<O.length;j++){
+           if(win[i][0]== O[j]) count +=1;
+           if(win[i][1]==O[j]) count +=1;
+           if(win[i][2]==O[j]) count +=1;
+        }
+        if(count == 3) {alert("O winner"); break;}
+        
+    }
+}
+    </script>
+</body>
+</html>

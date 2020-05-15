@@ -1,0 +1,179 @@
+<!-- Bài 1- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử. Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.
+
+Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau. Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó.
+
+Bài 3- Viết chương trình khởi tạo mảng số nguyên. Hiển hiện giá trị lớn nhất trong mảng đó. In ra giá trị trung bình của các phần tử trong mảng.
+
+Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó.
+
+Bài 5- Viết chương trình đếm số nguyên âm trong một chuỗi
+
+Bài 6- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. Chương trình tìm xem V có nằm trong mảng số nguyên không? Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".
+
+Bài 7- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng đã cho xoá V khỏi mảng (Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng của mảng)
+
+Bài 8- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử. Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.
+
+Bài 9- Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là mảng a và b. Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên. Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c. Hiển thị mảng c. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Bài 1- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử. 
+        Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10</p>
+    <input type="button" value="Kết quả" onclick="bai_1();">
+    <hr>
+    <p>Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau. 
+        Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó</p>
+    <input type="button" value="Kết quả" onclick="bai_2();">
+    <hr>
+    <p>Bài 3- Viết chương trình khởi tạo mảng số nguyên.
+         Hiển hiện giá trị lớn nhất trong mảng đó. 
+         In ra giá trị trung bình của các phần tử trong mảng</p>
+    <input type="button" value="Kết quả" onclick="bai_3();">
+    <hr>
+    <p>Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó.</p>
+    <input type="button" value="Kết quả" onclick="bai_4();">
+    <hr>
+    <p>Bài 5- Viết chương trình đếm số nguyên âm trong một chuỗi</p>
+    <input type="button" value="Kết quả" onclick="bai_5();">
+    <hr>
+    <p>Bài 6- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. 
+        Chương trình tìm xem V có nằm trong mảng số nguyên không? 
+        Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array"</p>
+    <input type="button" value="Kết quả" onclick="bai_6();">
+    <hr>
+    <p>Bài 7- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. 
+        Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng đã cho xoá V khỏi mảng (Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng của mảng)</p>
+    <input type="button" value="Kết quả" onclick="bai_7();">
+    <hr>
+    <p>Bài 8- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử. 
+        Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.</p>
+    <input type="button" value="Kết quả" onclick="bai_8();">
+    <hr>
+    <p>Bài 9- Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là mảng a và b. 
+        Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên. 
+        Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c. Hiển thị mảng c</p>
+    <input type="button" value="Kết quả" onclick="bai_9();">
+    <hr>
+    <script>
+        function bai_1(){
+            let nums = [];
+            let count = 0;
+            let text = ""
+            for (let i =0; i<10;i++){
+                nums[i]=+prompt("Nhập số nguyên vào mảng: ");
+                if(nums[i] >= 10) { text += nums[i] + ' ';    count++;} 
+            }
+            alert("Có " + count +" số lớn hơn hoặc bằng 10 là " + text)
+        }
+        //----------------------------------------------------------------
+        function bai_2(){
+            let nums = [];
+            let pos = 1;
+            for (let i =0; i<10;i++){
+                nums[i]=+prompt("Nhập số nguyên vào mảng: ");
+            }
+
+            let max = nums[0];
+            for (let i =1; i<10;i++){
+               if(nums[i] > max){
+                   max = nums[i]; pos = i+1;
+               }
+            }
+        alert("Phần tử có giá trị lớn nhất trong mảng có giá trị là: "+ max + " ở vị trí: "+ pos);
+        }
+        //--------------------------------------------------------------------
+        function bai_3(){
+            let nums = [];
+            let amount = +prompt("Nhập số phần tử của mãng: ");
+            let sum=0;
+            for (let i =0; i<amount;i++){
+                nums[i]=+prompt("Nhập số nguyên vào mảng: ");
+                sum += nums[i];
+            }
+
+            let max = nums[0];
+            for (let i =1; i<amount;i++){   
+               if(nums[i] > max){
+                   max = nums[i];
+               }
+               
+            }
+    
+            let avg = (sum/amount).toFixed(0);
+        alert("Giá trị lớn nhất của mảng: "+max+ " .Giá trị trung bình các phần tử trong mãng: "+ avg);
+        }
+        //-------------------------------------------------------------------------------------------
+        function bai_4(){
+            let arr = [];
+            let rev =[];
+            let amount = +prompt("Nhập số phần tử của mãng: ");
+            for (let i =0; i<amount;i++){
+                arr[i]= prompt("Nhập phần tử của mảng: ");
+            }
+            rev = arr.reverse();
+            alert("Đảo các phần tử trong mãng ta có mảng sau: "+ rev.join(' , '));
+        }
+        //------------------------------------------------------------------------
+        function bai_5(){
+         let arr = [];
+         let count = 0;
+         let str = prompt("Nhập chuổi số cách nhau bằng dấu ',': ");
+         arr=str.split(',');
+         for (let i =0; i<arr.length;i++){
+             if (parseInt(arr[i]) < 0){
+                count++;
+             }
+         }
+         alert("Số lượng nguyên âm trong chuổi: "+ count);
+        }
+        //-----------------------------------------------------------------------
+        function bai_6(){
+            let arr =[];
+            alert("Nhập các phần tử trong mảng !!!!");
+            for (let i =0; i<10;i++){
+                arr[i]= +prompt("Nhập số nguyên của mảng: ");
+            }
+            alert("Nhập số V cần tim!!!!");
+            let num = +prompt("Nhập số nguyên V cần tìm: ");
+            if(arr.indexOf(num)!=1) alert("V is in the array"); else alert("V is not in the array");
+        }
+        //---------------------------------------------------------
+        function bai_8(){
+            let arr = [];
+            let sort = [];
+            alert("Nhập các phần tử trong mảng !!!!");
+            for (let i =0; i<10;i++){
+                arr[i]= +prompt("Nhập số nguyên của mảng: ");
+            }
+            function compare(a,b){
+                return b-a;
+            }
+            sort = arr.sort(compare);
+            alert("Mảng được sắp sếp " + sort.join(' , '));
+        }
+        //-----------------------------------------------------------------
+        function bai_9(){
+            let a =[];
+            let b=[];
+            let c= new Array(20);
+            alert("Mảng a !!!!");
+            for (let i =0; i<10;i++){
+                a[i]= +prompt("Nhập số nguyên của mảng a: ");
+            }
+            alert("Mảng b !!!!");
+            for (let i =0; i<10;i++){
+                b[i]= +prompt("Nhập số nguyên của mảng b: ");
+            }
+            c= b.concat(a);
+            alert("Mang c được nối là: "+ c.join(' , '));
+
+        }
+    </script>
+</body>
+</html>
