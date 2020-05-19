@@ -35,30 +35,26 @@ table{
     table-layout: fixed;
 }
 .name{
-    width: 800px;
+    width: 90%;
     height: 50px;
     text-align: left;
 }
 #amount{
     color: hotpink;
+    text-align: right;
 }
 .edit{
-    width: 100px;
+    width: 10%;
     height: 50px;
 }
 .dele{
-    width: 200px;
+    width: 10%;
     height: 50px;
 }
 input[type='button']{ 
    padding: 2px 20px 2px 20px;
    background-color: #50AF50;
 }
-#add{
-    width: 300px;
-    
-}
-
 </style>
 </head>
 <body onload="displayList(product)">
@@ -85,16 +81,19 @@ input[type='button']{
         arr.splice(pos,1);
         displayList(arr);
     }
+
     function editProduct(arr,pos){
         let newProduct = prompt("Nhập tên sản phẩm: ")
         arr.splice(pos,1,newProduct);
         displayList(arr);
     }
+
     function addProduct(arr,prd){
         if(prd == '') {alert("Nhập NewProduct!!!"); return;}
         arr.push(prd);
         displayList(arr);
     }
+
     function displayList(arr){
         let text = "";
              text += "<table>";
