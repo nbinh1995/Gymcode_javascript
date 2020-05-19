@@ -1,0 +1,153 @@
+<!-- Bài 1: Viết hàm tính bình phương của một số bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.
+
+Bài 2: Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được
+
+Bài 3: Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.
+
+Bài 4: Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. Nếu là ký tự số hàm trả về true, ngược lại trả về false.
+
+Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.
+
+Bài 6: Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên dương không. Nếu là nguyên dương trả về true, ngược lại trả về false.
+
+Bài 7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó.
+
+Bài 8: Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó.
+
+Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không. Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Bài 1: Viết hàm tính bình phương của một số bất kỳ được đưa vào. 
+        Gọi hàm vừa xây dựng được</p>
+    <input type="text" id='num' placeholder="Number">
+    <input type="button" value="KetQua" onclick="square(document.getElementById('num').value)">
+    <hr>
+    <p>Bài 2: Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được</p>
+    <input type="button" value="KetQua" onclick="runExe2();">
+    <hr>
+    <p>Bài 3: Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. 
+        Gọi hàm vừa xây dựng được.</p>
+    <input type="button" value="KetQua" onclick="runExe3();">
+    <hr>
+    <p>Bài 4: Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. 
+        Nếu là ký tự số hàm trả về true, ngược lại trả về false.</p>
+    <input type="button" value="KetQua" onclick="runExe4();">
+    <hr>
+    <p>Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.</p>
+    <input type="button" value="KetQua" onclick="runExe5();">
+    <hr>
+        <p>Bài 6: Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên dương không. 
+            Nếu là nguyên dương trả về true, ngược lại trả về false</p>
+        <input type="button" value="KetQua" onclick="runExe6();">  
+    <hr>
+        <p>Bài 7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó.</p>
+        <input type="button" value="KetQua" onclick="runExe7();">  
+    <hr>
+    <p>Bài 8: Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó.
+        <br>arr = [8,9,10,90,5,10,30]
+    </p>
+        <input type="button" value="KetQua" onclick="runExe8();">  
+    <hr>
+    <p>Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không. 
+        Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1</p>
+        <input type="button" value="KetQua" onclick="runExe9();">  
+    <script>
+        function square(num){
+            alert (num+'^2= '+num**2);
+            return num**2;
+        }
+        //--------------------------------------------------------
+        function areaCircle(rad){
+            return (rad*rad*3.14).toFixed(2);
+        }
+        function aroundCircle(rad){
+            return (2*rad*3.14).toFixed(2);
+        }
+        function runExe2(){
+            let rad = +prompt("Nhap ban kinh đường tròn: ");
+            alert("Chu vi: "+aroundCircle(rad)+ " .Diện tích: "+areaCircle(rad) )
+        }
+        //----------------------------------------
+        function factorial(num){
+            if (num == 1) return 1;
+            return factorial(num-1)*num;
+        }
+        function runExe3(){
+            let num = +prompt("Nhập 1 số bất kì: ");
+            alert(num+ "!= "+ factorial(num) );
+        }
+        //------------------------------------------------
+        function checkNum(str){
+            let temp = parseInt(str);
+            if(isNaN(temp)) return false; else return true;
+        }
+        function runExe4(){
+            let str = prompt("Nhap chuoi can kiem tra: ");
+            if(checkNum(str)) alert("ky tự số");
+             else alert("Ko phai ky tự số");   
+        }
+        //--------------------------
+        function findMin(a,b,c){
+            return Math.min(a,b,c);
+        }
+        function runExe5(){
+            let a = +prompt("Nhap so thu nhat: ");
+            let b = +prompt("Nhap so thu hai: ");
+            let c = +prompt("Nhap so thu ba: ");
+            alert("Giá trị nhỏ nhất: "+ findMin(a,b,c));
+        }
+        //----------------------------------------------
+        function checkPrefixe(num){
+           if( num > 0 ) return true;
+           else return false;
+        }
+        function runExe6(){
+            let num = +prompt("Nhập 1 số bất kì: ");
+            if(checkPrefixe(num)) alert("Là số nguyên dương"); 
+            else alert(" ko phải số nguyên dương")
+        }
+        //----------------------------?
+        function swap2Num(a,b){
+            let temp=a;
+            a = b;
+            b = temp;
+            alert ("So thu nhat là: "+ a + " .So thu hai la: "+ b);  
+        }
+        function runExe7(){
+            
+             a = +prompt("Nhập số nguyên thứ 1:");
+             b = +prompt("Nhập số nguyên thứ 2: "); 
+            swap2Num(a,b); 
+        }
+        //--------------------------------
+        function reverseArr(arr){
+            return arr.reverse();
+        }
+        function runExe8(){
+            let arr = [8,9,10,90,5,10,30];
+            alert(reverseArr(arr));
+        }
+        //-----------------------------------------
+        function compareChar(arr,ch){
+            let count = 0;
+            for (let i =0; i<arr.length;i++){
+                if(ch === arr[i]) count++;
+            }
+            if(count == 0) return -1; else return count;
+        }
+        function runExe9(){
+            let arr = ['b','i','n','h','b','i','n'];
+            let ch = prompt("Nhap ki tu can kiem tra: ");
+            if(compareChar(arr,ch) === -1) alert("Ko co ky tu kiem tra trong mang");
+            else alert("So lan ki tu suat hien trong mang " + compareChar(arr,ch));
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!-- Bài 1: Tạo hàm alertMessage() hiển thị hộp thoại chứa chuỗi  "Xin chao". Gọi hàm từ trong phần <body> của trang web.
+
+    Bài 2: Tạo hàm nhận vào một đối số dạng số, tăng giá trị đối số đó lên 1 và trả lại giá trị cho lời gọi hàm. Gọi hàm từ trong phần <body> của trang web và hiển thị kết quả lên màn hình.
+    
+    Bài 3: Tạo hàm nhận vào hai tham số. Nếu giá trị của tham số thứ nhất lớn hơn tham số thứ hai, hiển thị hộp thoại thông báo cho người dùng. Nếu giá trị của tham số thứ nhất nhỏ hơn hoặc bằng tham số thứ hai, trả về tổng của hai tham số.
+    
+    Bài 4: Thêm các hàm alert() vào những vị trí thích hợp trong đoạn mã sau để bạn có thể nhìn thấy giá trị của biến result trước và sau lời gọi hàm. Đoạn mã có dạng như sau:
+    
+    function addNumbers() {
+        firstNum = 4;
+        secondNum = 8;
+        result = firstNum + secondNum;
+        return result;
+    }
+    result = 0;
+    result = addNumbers(); 
+    Bài 5: Tạo một mảng với bảy phần tử dạng chuỗi có giá trị là tên các ngôi sao sau:
+     Polaris, Aldebaran, Deneb, Vega, Altair, Dubhe và Regulus. 
+    Tạo một mảng khác với bảy phần tử dạng chuỗi có giá trị là tên các chòm sao tương ứng chứa các ngôi sao:
+     Ursa Minor, Tarurus, Cygnus, Lyra, Aquila, Ursa Major và Leo. 
+     Tiếp theo, tạo một hàm nhận vào một tham số dạng chuỗi duy nhất. 
+     Trong hàm này, duyệt qua mảng thứ nhất để tìm tên ngôi sao. 
+     Nếu tìm thấy, trả lại giá trị tương ứng với chỉ số đó ở mảng thứ hai. 
+     Nói cách khác, trả lại tên chòm sao của ngôi sao đó. 
+     Trong phần <body> của trang web, dùng hộp thoại prompt để người dùng nhập vào tên của ngôi sao, sau đó gọi hàm với thông tin đầu vào. Đừng quên xử lý trong trường hợp không tìm thấy ngôi sao nào.
+    Cho kết quả hiển thị trên màn hình. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>Bài 1: Tạo hàm alertMessage() hiển thị hộp thoại chứa chuỗi  "Xin chao". Gọi hàm từ trong phần 'body' của trang web</p>
+    <input type="button" value="Ket qua" onclick="alertMessage();">
+    <hr>
+    <p>Bài 2: Tạo hàm nhận vào một đối số dạng số, tăng giá trị đối số đó lên 1 và trả lại giá trị cho lời gọi hàm. 
+        Gọi hàm từ trong phần 'body' của trang web và hiển thị kết quả lên màn hình.</p>
+    <input type="text" id="in" placeholder="Number">
+    <input type="button" value="Ket qua" onclick="increaseNum(+document.getElementById('in').value);">
+    <hr>
+    <p>Bài 3: Tạo hàm nhận vào hai tham số. Nếu giá trị của tham số thứ nhất lớn hơn tham số thứ hai, hiển thị hộp thoại thông báo cho người dùng.
+         Nếu giá trị của tham số thứ nhất nhỏ hơn hoặc bằng tham số thứ hai, trả về tổng của hai tham số</p>
+         <input type="text" id="in_1" placeholder="Number 1">
+         <input type="text" id="in_2" placeholder="Number 2">
+         <input type="button" value="Ket qua" onclick="alert(compare2Num(+document.getElementById('in_1').value,
+         +document.getElementById('in_2').value))">
+         <hr>
+    <p>Bài 4: Thêm các hàm alert() vào những vị trí thích hợp trong đoạn mã sau để bạn có thể nhìn thấy giá trị của biến result trước và sau lời gọi hàm.
+        <br> Đoạn mã có dạng như sau: <br>
+        function addNumbers() { <br>
+            firstNum = 4; <br>
+            secondNum = 8; <br>
+            result = firstNum + secondNum; <br>
+            
+            return result; <br>
+        } 
+        result = 0; <br>
+        <strong>alert ("Truoc " + result);</strong>  <br>
+        result = addNumbers(); <br>
+        <strong>alert ("Sau " + result); </strong>  
+    </p>
+    <input type="button" value="Ket qua" onclick="runExe4();">
+    <hr>
+    <p> Bài 5: Tạo một mảng với bảy phần tử dạng chuỗi có giá trị là tên các ngôi sao sau: <br>
+        Polaris, Aldebaran, Deneb, Vega, Altair, Dubhe và Regulus. <br>
+       Tạo một mảng khác với bảy phần tử dạng chuỗi có giá trị là tên các chòm sao tương ứng chứa các ngôi sao: <br>
+        Ursa Minor, Tarurus, Cygnus, Lyra, Aquila, Ursa Major và Leo. <br>
+        Tiếp theo, tạo một hàm nhận vào một tham số dạng chuỗi duy nhất. 
+        Trong hàm này, duyệt qua mảng thứ nhất để tìm tên ngôi sao. 
+        Nếu tìm thấy, trả lại giá trị tương ứng với chỉ số đó ở mảng thứ hai. 
+        Nói cách khác, trả lại tên chòm sao của ngôi sao đó. 
+        Trong phần <body> của trang web, dùng hộp thoại prompt để người dùng nhập vào tên của ngôi sao, sau đó gọi hàm với thông tin đầu vào. 
+        Đừng quên xử lý trong trường hợp không tìm thấy ngôi sao nào. Cho kết quả hiển thị trên màn hình</p>
+        <input type="button" value="Ket qua" onclick="runExe5();">
+        <hr>
+    <script>
+    function alertMessage(){
+    alert("Xin Chao");
+    }
+
+    function increaseNum(number){
+        number++;
+        alert(number);
+        return number;
+    }
+
+    function compare2Num(num_1,num_2){
+        if(num_1 > num_2) alert("So thu 1 lon hon so thu 2"); else return num_2+num_1;
+    }
+
+    function addNumbers() {
+        firstNum = 4;
+        secondNum = 8;
+        result = firstNum + secondNum; 
+        return result;
+        } 
+    function runExe4(){
+     result = 0;
+     alert ("Truoc " + result);
+     result = addNumbers();
+     alert("Sau "+ result);}
+       
+     function indexOfArray(value){
+        let star = ['Polaris','Aldebaran','Deneb','Vega','Altair','Dubhe','Regulus'];
+         return star.indexOf(value);
+     }
+
+     function runExe5(){
+        let constellation = ['Ursa Minor','Tarurus','Cygnus','Lyra','Aquila','Ursa Major','Leo']
+        let namestar = prompt("Nhap ten ngoi sao can tim");
+        let temp = indexOfArray(namestar);
+        if(temp == -1){ alert("Ko tim thay !!") }
+        else {alert("Chom sao của ngôi sao "+ namestar + " là "+ constellation[temp])}
+     }
+    </script>
+</body>
+</html>

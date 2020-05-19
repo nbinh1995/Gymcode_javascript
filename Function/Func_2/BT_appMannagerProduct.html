@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    border: 1px solid black;
+}
+input[type='button']{ 
+   padding: 2px 20px 2px 20px;
+   background-color: #50AF50;
+}
+#add{
+    width: 300px;
+    
+}
+</style>
+</head>
+<body onload="displayList(product)">
+    <h1>Add New Product</h1>
+    <form action="" id="add">
+        <input type="text" placeholder="New Product" id='newProduct'>
+        <input type="button" onclick="addProduct(product,document.getElementById('newProduct').value);" value="Add" id="">
+    </form>
+    <h1>Display All Product</h1>
+      <div id="display"></div>
+    </table>
+    <script>
+    let product = ['Apple iPhone XR','Samsung Galaxy A10','Samsung Galaxy A50','Oppo A9','Apple iPhone 11','Oppo A5s','Samsung Galaxy A'];
+    
+    function deleteProduct(arr,pos){
+        arr.splice(pos,1);
+        displayList(arr);
+    }
+    function editProduct(arr,pos){
+        let newProduct = prompt("Nhập tên sản phẩm: ")
+        arr.splice(pos,1,newProduct);
+        displayList(arr);
+    }
+    function addProduct(arr,prd){
+        arr.push(prd);
+        displayList(arr);
+    }
+    function displayList(arr){
+        let text = "";
+             text += "<table>";
+             text += "<tr> <td>Product Name</td> <td colspan='2'>"+arr.length+" products</td></tr>"
+        for ( let i = 0; i < arr.length;i++){
+            text += "<tr> <td>"+ arr[i] + "</td>"  
+            text +="<td><input type='button' value='Edit' onclick='editProduct(product,"+i+")'></td>"
+            text +="<td><input type='button' value='Delete' onclick='deleteProduct(product,"+i+")'></td>" 
+        }
+        text += "</table>";
+
+        document.getElementById("display").innerHTML = text;
+    }
+    </script>
+</body>
+</html>

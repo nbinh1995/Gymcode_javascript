@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = prompt("Chuoi can kiem tra doi sung")
+        if (isPalindrome(str)) alert("La chuoi Palindrome");
+        else alert("Ko phai la chuoi Palindrome");
+        function compareFirtLastChar(str){
+            if(str[0] === str[str.length -1]) return true;
+            else return false;
+        }
+        function isPalindrome(str){
+            if(compareFirtLastChar(str)) {
+                str.pop;
+                str.shift;
+                if(str.length > 1) return compareFirtLastChar(str);
+                else return true;
+            } else return false
+        }
+    </script>
+</body>
+</html>

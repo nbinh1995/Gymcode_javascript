@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        }
+    h1{margin-left: 100px;}
+    div{
+        
+        float: left;
+        margin-top: 10px;
+        margin-left: 50px ;
+    }
+    #btn{    
+       display: inline-block;
+       margin: 24px;
+       padding : 5px 10px; 
+       
+    }
+    </style>
+</head>
+<body>
+    <h1>CONVERTER FOOT -- METER</h1>
+    <hr>
+    <div><h3>IN</h3> <input type="text" id="in" placeholder="INPUT"></div>
+    <div>
+        <h3>OPTION</h3> 
+    <select  id="opt">
+        <option value="1">Feet - Meter</option>
+        <option value="2">Meter - Feet</option>
+    </select>
+    </div>
+    <div><h3>OUT</h3> <input type="text" id="out" placeholder="OUTPUT" disabled></div>
+    <input type="button" value="Convert" id="btn" onclick="main();">
+    <hr>
+    <script>
+        function main(){
+            let mode = document.getElementById("opt");
+            let inp = document.getElementById("in");
+            let outp = document.getElementById('out'); 
+            if(mode .value == '1') outp.value = footToMeter(inp.value);
+            if (mode .value == '2') outp.value= meterToFoot(inp.value);
+        }
+        function footToMeter(foot){
+            const RATE = 0.305;
+            return (RATE * foot).toFixed(3);
+        }
+        function meterToFoot(meter){
+            const RATE = 3.279;
+            return (RATE * meter).toFixed(3);
+        }
+    </script>
+</body>
+</html>
