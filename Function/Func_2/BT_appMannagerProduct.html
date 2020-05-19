@@ -9,8 +9,46 @@
     margin: 0px;
     padding: 0px;
 }
-body{
-    border: 1px solid black;
+section{
+    width: 90%;
+    margin: 0 auto;
+}
+#header{
+    width: 90%;
+    margin: 0 auto;
+}
+#header > h1 {
+    margin-top: 20px;
+}
+form{
+    display: inline-block;
+    padding: 10px;
+    background-color:ghostwhite;
+}
+#main{
+    margin: 20px;
+}
+#main > h1{
+    margin-bottom: 10px;
+}
+table{
+    table-layout: fixed;
+}
+.name{
+    width: 800px;
+    height: 50px;
+    text-align: left;
+}
+#amount{
+    color: hotpink;
+}
+.edit{
+    width: 100px;
+    height: 50px;
+}
+.dele{
+    width: 200px;
+    height: 50px;
 }
 input[type='button']{ 
    padding: 2px 20px 2px 20px;
@@ -20,17 +58,26 @@ input[type='button']{
     width: 300px;
     
 }
+
 </style>
 </head>
 <body onload="displayList(product)">
+    <div id="container">
+        <div id="header">
     <h1>Add New Product</h1>
-    <form action="" id="add">
+    <form action="a" >
         <input type="text" placeholder="New Product" id='newProduct'>
         <input type="button" onclick="addProduct(product,document.getElementById('newProduct').value);" value="Add" id="">
     </form>
+    </div>
+    <hr>
+    <section>
+        <div id="main">
     <h1>Display All Product</h1>
       <div id="display"></div>
-    </table>
+    </div>
+    </section>
+    </div>
     <script>
     let product = ['Apple iPhone XR','Samsung Galaxy A10','Samsung Galaxy A50','Oppo A9','Apple iPhone 11','Oppo A5s','Samsung Galaxy A'];
     
@@ -44,17 +91,18 @@ input[type='button']{
         displayList(arr);
     }
     function addProduct(arr,prd){
+        if(prd == '') {alert("Nhập NewProduct!!!"); return;}
         arr.push(prd);
         displayList(arr);
     }
     function displayList(arr){
         let text = "";
              text += "<table>";
-             text += "<tr> <td>Product Name</td> <td colspan='2'>"+arr.length+" products</td></tr>"
+             text += "<tr> <th class='name'>Product Name</th> <th id='amount' colspan='2'>"+arr.length+" products</th></tr>"
         for ( let i = 0; i < arr.length;i++){
-            text += "<tr> <td>"+ arr[i] + "</td>"  
-            text +="<td><input type='button' value='Edit' onclick='editProduct(product,"+i+")'></td>"
-            text +="<td><input type='button' value='Delete' onclick='deleteProduct(product,"+i+")'></td>" 
+            text += "<tr> <td class='name'>"+ arr[i] + "</td>"  
+            text +="<td class='edit'><input type='button' value='Edit' onclick='editProduct(product,"+i+")'></td>"
+            text +="<td class='dele'><input type='button' value='Delete' onclick='deleteProduct(product,"+i+")'></td>" 
         }
         text += "</table>";
 
