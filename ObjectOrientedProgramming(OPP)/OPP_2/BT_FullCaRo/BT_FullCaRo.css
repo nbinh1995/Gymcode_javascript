@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+*, *:before, *:after {
+    margin:0;
+    padding:0;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+  }
+  .container{
+      position: relative;
+      text-align: center;
+      background: url(img/backgroundcaro.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+  #new{
+    position: absolute;
+    top: 0em;
+    left: 78%;
+    font-size: 1.2em;
+    color: blue;
+  }
+  #new:hover{
+    transform: scale(1.1,1.1);
+    color: red;
+  }
+  .boardgame{
+    position: relative;
+    display: inline-block;
+    border: double 5px rgba(0, 0, 0, 0.5);
+  }
+  .row div{
+    border: 1px dotted rgba(172, 162, 162, 0.671);
+    width: 30px;
+    height: 30px;
+    font-family: 'Fredericka the Great', cursive;
+    font-size: x-large;
+    font-weight: bolder;
+  }
+
+  .row{
+      display: flex;
+  }
+  #draw h3 {
+    margin-left: 10%;
+    text-align: left;
+  }
+  
