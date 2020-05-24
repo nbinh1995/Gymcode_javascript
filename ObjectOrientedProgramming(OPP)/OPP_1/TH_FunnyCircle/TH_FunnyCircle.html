@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+  background: url('img/868165.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+    </style>
+</head>
+<body>
+   
+    <canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+    <script>
+    
+// vi tri ngau nhien
+const myCanvas = document.getElementById('myCanvas');
+
+const ctx = myCanvas.getContext('2d');
+myCanvas.height = 768;
+myCanvas.width = 1368;
+
+window.addEventListener('resize', function() {
+  myCanvas.width = 1368;
+  myCanvas.height = 768;
+})
+    function Circle(){
+       this.x = Math.random() * 1368;
+       this.y = Math.random() * 768;
+       this.radius = Math.floor(Math.random() * 80);
+       this.color = getRandomColor();
+       this.speed = {
+        x: Math.random() * 4,
+        y: Math.random() * 4,
+        }
+    this.createCircle = function() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.closePath();    
+    }
+    this.update = function() {
+        this.x += this.speed.x;
+        this.y += this.speed.y;
+        if(this.y >= 768) this.speed.y  = 0;
+        this.createCircle();
+    }
+    }
+    
+    function getRandomHex(){
+        return Math.floor(Math.random()*255);
+    }
+   
+    function getRandomColor(){
+       var red = getRandomHex();
+       var green = getRandomHex();
+       var blue = getRandomHex();
+       var op= Math.random(1);
+    	 return "rgb(94, 202, 255," + op+")";
+    }
+    const arr = [];
+    function init() {
+    arr.push(new Circle());
+    }
+
+    function animate() {
+    ctx.clearRect(0,0, 1368, 768);
+    arr.forEach(function(item) {
+    item.update();
+    })
+    if(arr.length >30){
+        arr.splice(0,1);
+    }
+    init();
+    window.requestAnimationFrame(animate);
+    }
+animate();
+    </script>
+</body>
+</html>

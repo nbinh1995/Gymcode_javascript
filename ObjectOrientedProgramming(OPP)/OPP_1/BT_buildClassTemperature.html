@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     class temperature{
+         constructor(celsius){
+            celsius > -273 ? this.celsius = celsius : this.celsius = -273;
+         }
+        convertC_F(){
+            return (this.celsius*9/5+32).toFixed(2);   
+        }
+        convertC_K(){
+            return (this.celsius +273.15).toFixed(2);
+        }
+     }
+     let temp = new temperature();
+     temp.celsius= 25;
+     alert(`Nhiet do F tuong duong: ${temp.convertC_F()}`);
+     alert(`Nhiet do K tuong duong: ${temp.convertC_K()}`);
+    </script>
+</body>
+</html>

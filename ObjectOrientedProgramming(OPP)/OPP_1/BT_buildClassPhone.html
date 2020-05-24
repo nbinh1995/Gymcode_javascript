@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <style>
+        /* The device with borders */
+        .smartphone {
+          position: relative;
+          width: 360px;
+          height: 640px;
+          margin: auto;
+          border: 16px black solid;
+          border-top-width: 60px;
+          border-bottom-width: 60px;
+          border-radius: 36px;
+        }
+        
+        /* The horizontal line on the top of the device */
+        .smartphone:before {
+          content: '';
+          display: block;
+          width: 60px;
+          height: 5px;
+          position: absolute;
+          top: -30px;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: #333;
+          border-radius: 10px;
+        }
+        
+        /* The circle on the bottom of the device */
+        .power {
+          content: '';
+          display: block;
+          width: 35px;
+          height: 35px;
+          position: absolute;
+          left: 50%;
+          bottom: -65px;
+          transform: translate(-50%, -50%);
+          background: #333;
+          border-radius: 50%;
+        }
+        .home{
+          display: block;
+          width: 50px;
+          height: 50px;
+          background: #333;
+          border-radius: 50%;
+          margin-left: 20px;
+        }
+        #nut{
+            margin-left: 60px; 
+            font-size: 4em;
+        }
+        /* The screen (or content) of the device */
+        .smartphone .content {
+          width: 360px;
+          height: 640px;
+          background: white;
+        }
+        .container{
+            display: flex;
+        }
+        .box{
+         margin-right: 10%;
+        }
+        .header{
+            position: absolute;
+            left: 78%;
+            top: 0px;
+            display: flex;
+        }
+        .middle{
+            position: absolute;
+            top: 5%;
+            left: 0px;
+            width: 355px;
+            height: 450px;
+        }
+        .writeArea{
+            margin: 0;
+            width: 355px;
+            height: 450px;
+            background-color: black;
+        }
+        .footer{
+            position: absolute;
+            left: 10%;
+            bottom: 0px;
+            display: flex;
+        }
+        .header{
+            font-size: 2em; 
+        }
+        .sent {
+        font-size: 4em;
+        margin-left: 10px;
+        }
+        .receive{
+        margin-left: 10px;
+        font-size: 4em; 
+        }
+        .writing{
+        margin-left: 10px;
+        font-size: 4em;
+        }
+        .senting{
+        margin-left: 10px;
+        font-size: 4em; 
+        }
+        .comment{
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>IPHONE</h1><input type="button" value="change" onclick="changeiphone();">
+    <div class="smartphone">
+        <div class="content">
+            <div class="header"><div id="bat1"></div><i class="fas fa-battery-full"></i></div>
+            <div class="middle"><textarea name="" id="area1" class="writeArea" ></textarea></div>
+            <div class="footer">
+            <div id="ip1" class="sent"><i class="far fa-envelope" ></i></div>
+            <div id="ip2" class="receive"><i class="far fa-envelope-open"></i></div>
+            <div id='ip3' class="writing"><i class="fas fa-envelope-open-text"></i></div>
+            <div id='ip4' class="senting"><i class="far fa-paper-plane"></i></div>
+            </div>
+        </div>
+        <div id="pw1" class="power"></div>
+    </div>
+    
+    </div>
+    <div class="box">
+        <H1>NOKIA</H1><input type="button" value="change" onclick="changenokia();">
+    <div class="smartphone">
+        <div class="content">
+            <div class="header"><div id="bat2"></div><i class="fas fa-battery-full"></i></div>
+            <div class="middle"><textarea name="" id="area2" class="writeArea" ></textarea></div>
+            <div class="footer">
+            <div id="nk1" class="sent"><i class="far fa-envelope"></i></div>
+            <div id='nk2' class="receive"><i class="far fa-envelope-open"></i></div>
+            <div id="nk3" class="writing"><i class="fas fa-envelope-open-text"></i></div>
+            <div id='nk4' class="senting"><i class="far fa-paper-plane"></i></div>
+            </div>
+        </div>
+        <div id="pw2" class="power"></div>
+    </div>
+</div>
+<div class="comment">
+    <div  class="sent"><i class="far fa-envelope">Hòm thư gửi đi</i></div>
+    <div  class="receive"><i class="far fa-envelope-open">Hòm thư nhận</i></div>
+    <div  class="writing"><i class="fas fa-envelope-open-text">Add vào thư đang viết</i></div>
+    <div  class="senting"><i class="far fa-paper-plane">Gửi tin nhắn</i></div>
+    <div  class="home"><p id="nut">Power</p></div>
+</div>
+</div>
+    <script>
+        class Mobile{
+            constructor(power){
+                power < 100 ?this.power = power : this.power = 100;
+                this.areaWriting = [];
+                this.messReceive = [];
+                this.messSent = [];
+                this.status = false; 
+                
+            }
+            checkStatus(){
+                if(this.power == 0) this.status =false;
+                if(this.status){
+                this.power--;
+                return this.status;}
+                
+            }
+            on_offPower(){
+                if(this.power == 0) this.status =false;
+                else{
+                this.power--;
+                this.status= !this.status;}
+            }
+            changeBattery(){
+                for(this.power; this.power<100;this.power++ ){}
+                
+                
+            }
+            writing(mess){
+                if(this.status){
+                this.power--;
+                this.areaWriting.push(mess);
+                }
+                if(this.power == 0) this.status =false;
+            }
+            Receive(mess){
+                if(this.status){
+                this.power--;
+                this.messReceive.push(mess);}
+                if(this.power == 0) this.status =false;
+            }
+            Sent(mess){
+                if(this.status){
+                this.power--;
+                this.messSent.push(mess);}
+                if(this.power == 0) this.status =false;
+                }
+            showReceive(){
+                let text = "";
+                if(this.power == 0) this.status =false;
+                if(this.status)
+                {
+                    this.power--;
+                    for(let i=0;i<this.messReceive.length;i++){
+                        text += " | "+ this.messReceive[i] +' | ';
+                    }
+                }
+                return text;
+                
+            }
+            showSent(){
+                let text ="";
+                if(this.power == 0) this.status =false;
+                if(this.status){
+                this.power--;
+                for(let i=0;i<this.messSent.length;i++){
+                    text += ' | ' +this.messSent[i] +' | ';
+                }}
+                return text;
+            
+            }}
+            // kich ban
+            let iphone = new Mobile(90);
+            let ip1=document.getElementById('ip1');
+            let ip2=document.getElementById('ip2');
+            let ip3=document.getElementById('ip3');
+            let ip4=document.getElementById('ip4');
+            let pw1=document.getElementById('pw1');
+            let nokia = new Mobile(10);
+            let nk1=document.getElementById('nk1');
+            let nk2=document.getElementById('nk2');
+            let nk3=document.getElementById('nk3');
+            let nk4=document.getElementById('nk4');
+            let pw2=document.getElementById('pw2');
+            
+            ip1.addEventListener('click',showSentIphone); // nut hop thu gui
+            ip2.addEventListener('click',showReceiveIphone); // nut hop thu den
+            ip3.addEventListener('click',writeIphone) // nut luu thu dang viet
+            ip4.addEventListener('click',iphone_nokia)// nut gui 
+            nk1.addEventListener('click',showSentNokia);  // nut hop thu gui
+            nk2.addEventListener('click',showReceiveNokia); // hop thu den 
+            nk3.addEventListener('click',writeNokia); // nut luu thu dang viet
+            nk4.addEventListener('click',nokia_iphone); // nut gui
+            pw1.addEventListener('click',onoffIphone); // nut home 1
+            pw2.addEventListener('click',onoffNokia); // nut home 2
+            
+            function changenokia(){
+                nokia.changeBattery();
+                update();
+            }
+            function changeiphone(){
+                iphone.changeBattery();
+                update();
+            }
+            function onoffIphone(){
+                iphone.on_offPower();
+                update();
+            }
+            function onoffNokia(){
+                nokia.on_offPower();
+                update();
+            }
+            function writeIphone(){
+                let mess = document.getElementById('area1');
+                if(iphone.areaWriting.length < 1) {iphone.writing(mess.value); mess.value ="";}
+                else mess.value = iphone.areaWriting.pop();
+                update();
+            }
+            function writeNokia(){
+                let mess = document.getElementById('area2');
+                if(nokia.areaWriting.length < 1) {nokia.writing(mess.value); mess.value = "";}
+                else mess.value = nokia.areaWriting.pop();
+                update();
+            }
+            function iphone_nokia(){
+              
+                let mess = document.getElementById('area1');
+                iphone.Sent(mess.value);
+                nokia.Receive(mess.value);
+                mess.value ="";
+                update();
+            }
+            function nokia_iphone(){
+                let mess = document.getElementById('area2');
+                nokia.Sent(mess.value);
+                iphone.Receive(mess.value);
+                mess.value ="";
+                update();
+            }
+            function showReceiveIphone(){
+              
+                let text = iphone.showReceive
+                let mess = document.getElementById('area1');
+                if(mess.value != '') {iphone.writing(mess.value); mess.value ='';}
+                
+                mess.value = iphone.showReceive();
+                update();
+            }
+            function showSentIphone(){
+             
+                let text = iphone.showSent;
+                let mess = document.getElementById('area1');
+                if(mess.value != '') {iphone.writing(mess.value); mess.value ='';}
+                
+                mess.value = iphone.showSent();
+                update();
+            }
+            function showReceiveNokia(){
+               
+                let mess = document.getElementById('area2');
+                if(mess.value != '') {nokia.writing(mess.value); mess.value ='';}
+                console.log(nokia.showReceive());
+                mess.value = nokia.showReceive();
+                update();
+            }
+            function showSentNokia(){
+                
+                let mess = document.getElementById('area2');
+                if(mess.value != '') {nokia.writing(mess.value); mess.value ='';}
+                console.log(nokia.showSent);
+                mess.value = nokia.showSent();
+                update();
+            }   
+            function update(){
+                let bat1 = document.getElementById('bat1');
+                bat1.innerHTML = iphone.power;
+                let bat2 = document.getElementById('bat2');
+                bat2.innerHTML = nokia.power;
+                let area1 = document.getElementById('area1');
+                if(iphone.status) area1.style.backgroundColor = 'white';
+                else area1.style.backgroundColor = 'black';
+                let area2 = document.getElementById('area2');
+                if(nokia.status) area2.style.backgroundColor = 'white';
+                else area2.style.backgroundColor = 'black';
+            }
+
+            
+    </script>
+</body>
+</html>

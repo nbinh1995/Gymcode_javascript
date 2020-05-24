@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <style>
 *{
     margin: 0px;
@@ -63,7 +65,7 @@ input[type='button']{
     <h1>Add New Product</h1>
     <form action="a" >
         <input type="text" placeholder="New Product" id='newProduct'>
-        <input type="button" onclick="addProduct(product,document.getElementById('newProduct').value);" value="Add" id="">
+        <input type="button" class="btn btn-success" onclick="addProduct(product,document.getElementById('newProduct').value);" value="Add" id="">
     </form>
     </div>
     <hr>
@@ -96,12 +98,12 @@ input[type='button']{
 
     function displayList(arr){
         let text = "";
-             text += "<table>";
+             text += "<table class='table-striped'>";
              text += "<tr> <th class='name'>Product Name</th> <th id='amount' colspan='2'>"+arr.length+" products</th></tr>"
         for ( let i = 0; i < arr.length;i++){
             text += "<tr> <td class='name'>"+ arr[i] + "</td>"  
-            text +="<td class='edit'><input type='button' value='Edit' onclick='editProduct(product,"+i+")'></td>"
-            text +="<td class='dele'><input type='button' value='Delete' onclick='deleteProduct(product,"+i+")'></td>" 
+            text +="<td class='edit'><input type='button' class='btn btn-success' value='Edit' onclick='editProduct(product,"+i+")'></td>"
+            text +="<td class='dele'><input type='button' class='btn btn-success' value='Delete' onclick='deleteProduct(product,"+i+")'></td>" 
         }
         text += "</table>";
 

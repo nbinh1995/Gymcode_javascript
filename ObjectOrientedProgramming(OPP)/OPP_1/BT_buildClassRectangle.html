@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid black;"></canvas>
+    <script>
+       class Rectangle{
+           constructor(width,height){
+               this.width = width;
+               this.height = height;
+           }
+           getArea(){
+            return this.height*this.width;
+           }
+           getAround(){
+            return (this.width+this.height)*2;
+           }
+           paintRec(){
+            let canvas = document.getElementById('myCanvas');
+            let ctx = canvas.getContext('2d');
+            ctx.clearRect(0,0, 1368, 768);
+            ctx.beginPath();
+            ctx.rect(100, 100, this.width, this.height);
+            ctx.fill();
+            ctx.closePath();  
+           }
+       }
+       let rec = new Rectangle(500,100);
+       rec.paintRec();
+       
+       window.addEventListener("keydown",function(){
+        if(event.keyCode == 13){
+        rec.width = +prompt("Chieu rong thay doi");
+       rec.height =+prompt("Chieu dai thay doi");
+       alert(`Dien tich; ${rec.getArea()}`);
+       alert(`Chu vi: ${rec.getAround()}`);
+       rec.paintRec();
+       }})
+    </script>
+       
+      
+</body>
+</html>

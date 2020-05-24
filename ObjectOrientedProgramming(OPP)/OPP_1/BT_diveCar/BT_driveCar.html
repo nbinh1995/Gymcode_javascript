@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 5px solid black;
+            background: url('../img/street.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <img src="img/racecar_ahead.png" id="car1" alt=""  hidden>
+    <img src="img/racecar_back.png" id="car2" alt=""  hidden>
+    <img src="img/racecar_left.png" id="car3" alt=""  hidden>
+    <img src="img/racecar_right.png" id="car4" alt=""  hidden>
+    <img src="img/bomb.png" id="bomb" alt=""  hidden>
+    <img src="img/coin.png" id="coin" alt=""  hidden>
+
+    <canvas id="gameboard" width="1368px" height="768px"></canvas>
+
+    <script src="BT_driveCar.js"></script>
+</html>
