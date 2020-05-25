@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="BT_CatCatchMouse.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="info">
+                <div id="infocat" ></div>
+                <div id="saycat"></div>
+            </div>
+            <div id="cat">
+                <img src="img/cat.png" alt="cat" width="400px" height="400px">
+            </div>
+            <div class="action" id="action1">
+                    <button type="button" class="button" onclick="sayCat()">Say</button>
+                    <button type="button" class="button" onclick="catchRat()">Catch</button>
+                    <button type="button" class="button" onclick="eatRat()">Eat</button>
+            </div>
+        </div>
+        <div class="box">
+            <div class="info">
+                <div id="inforat" class="info"></div>
+                <div id="sayrat"></div>
+            </div>
+            <div id="rat">
+                <img src="img/rat.png" alt="rat" width="400px" height="400px">
+            </div>
+            <div class="action" id="action2">
+                <button type="button" class="button" onclick="sayRat()">Say</button>
+            </div>
+        </div>
+    </div>
+    <script src="BT_CatCatchMouse.js"></script>
+</body>
+</html>
