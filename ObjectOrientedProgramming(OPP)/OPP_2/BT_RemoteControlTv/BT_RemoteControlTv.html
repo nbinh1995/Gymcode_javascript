@@ -5,23 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="BT_RemoteControlTv.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
 <body>
     <div class="container">
-        <div id="object1">
             <div class="box">
-                <div id="tivi">
+                    <div class="ground">
+                        <div id="tivi">
+                            <div id="screen"><iframe id="channel" width="490" height="275" src="" remote frameborder="0" allowfullscreen></iframe></div>
+                            <div class="buttontv">
+                                <i class="fas fa-power-off" onclick="tv.onoffPower()"></i>
+                                <div><i class="fas fa-angle-left" onclick="tv.changeChannel(true)"></i>
+                                    <i class="fas fa-angle-right" onclick="tv.changeChannel(false)"></i></div>
+                                <div> <i class="fas fa-volume-up" onclick="tv.changeVolume(true);"></i>
+                                    <i class="fas fa-volume-down" onclick="tv.changeVolume(false);"></i></div>
+                            </div>
+                        </div>
+                    </div>    
+            </div>
 
-                </div>
-            </div>
-        </div>
-        <div id="object2">
             <div class="box">
-                <div id="remote">
-                    
-                </div>
+                    <div class="background">
+                        <div id="remote">
+                            <div id="power"><i class="fas fa-power-off"></i></div>
+                            <div id="left"><i class="fas fa-chevron-circle-left"></i></i></div>
+                            <div id="right"> <i class="fas fa-chevron-circle-right"></i></i></div>
+                            <div id='up'> <i class="fas fa-volume-up"></i> </div>
+                            <div id="down">   <i class="fas fa-volume-down"></i></div>                          
+                        </div>
+                    </div>    
             </div>
-        </div>
     </div>
     <script src="BT_RemoteControlTv.js"></script>
 </body>
