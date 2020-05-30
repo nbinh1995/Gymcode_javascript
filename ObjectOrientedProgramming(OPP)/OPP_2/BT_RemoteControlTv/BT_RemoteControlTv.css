@@ -49,9 +49,11 @@
     display: flex;
     color: rgba(172, 162, 162, 0.671);
 }
+.buttontv >div{
+    margin-right: 1em;
+}
 /*  remote */
 #remote{
-    
     width: 250px;
     height: 500px;
     border-radius: 35% 35% 20px 20px;

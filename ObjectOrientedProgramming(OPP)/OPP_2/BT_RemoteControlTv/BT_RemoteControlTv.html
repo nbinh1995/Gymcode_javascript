@@ -12,9 +12,13 @@
             <div class="box">
                     <div class="ground">
                         <div id="tivi">
-                            <div id="screen"><iframe id="channel" width="490" height="275" src="" remote frameborder="0" allowfullscreen></iframe></div>
+                            <div id="screen"><iframe id="channel"
+                                width="490" height="275"
+                                src=""
+                                frameborder="0"></iframe>
+                            </div>
                             <div class="buttontv">
-                                <i class="fas fa-power-off" onclick="tv.onoffPower()"></i>
+                                <div><i class="fas fa-power-off" onclick="tv.onoffPower()"></i></div>
                                 <div><i class="fas fa-angle-left" onclick="tv.changeChannel(true)"></i>
                                     <i class="fas fa-angle-right" onclick="tv.changeChannel(false)"></i></div>
                                 <div> <i class="fas fa-volume-up" onclick="tv.changeVolume(true);"></i>
@@ -27,15 +31,17 @@
             <div class="box">
                     <div class="background">
                         <div id="remote">
-                            <div id="power"><i class="fas fa-power-off"></i></div>
-                            <div id="left"><i class="fas fa-chevron-circle-left"></i></i></div>
-                            <div id="right"> <i class="fas fa-chevron-circle-right"></i></i></div>
-                            <div id='up'> <i class="fas fa-volume-up"></i> </div>
-                            <div id="down">   <i class="fas fa-volume-down"></i></div>                          
+                            <div id="power"><i class="fas fa-power-off" onclick='remote.onoffPower(tv);'></i></div>
+                            <div id="left"><i class="fas fa-chevron-circle-left"  onclick='remote.changeChannel(tv,true);'></i></i></div>
+                            <div id="right"> <i class="fas fa-chevron-circle-right"  onclick='remote.changeChannel(tv,false);'></i></i></div>
+                            <div id='up'> <i class="fas fa-volume-up"  onclick='remote.changeVolume(tv,true);'></i> </div>
+                            <div id="down">   <i class="fas fa-volume-down"  onclick='remote.changeVolume(tv,false);'></i></div>                          
                         </div>
                     </div>    
             </div>
     </div>
-    <script src="BT_RemoteControlTv.js"></script>
+    <script type="text/javascript" src="BT_RemoteControlTv.js">
+       
+    </script>
 </body>
 </html>

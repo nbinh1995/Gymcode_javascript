@@ -105,6 +105,38 @@
             }
         }
         
+        function ruleGame(){
+        // Ăn bomb lose, Ăn 3 vàng win.
+            let pos=6;
+            let len = arritem.length;
+        for (let i = 0; i<len;i++){
+            let item=arritem[i];
+            
+            if(i<3){
+                //bomb
+                if((item.x-10) < (car.x+40) && 
+                (car.x+40) <(item.x+60) && 
+                (item.y-10) < (car.y+50) && 
+                (car.y+50) < (item.y+60))
+                {  
+                    alert('GameOver!!! F5 Play again!');
+                    return;
+                }
+            }else{
+                //coin
+                if((item.x-10) < (car.x+40) && 
+                (car.x+40) <(item.x+60) && 
+                (item.y-10) < (car.y+50) && 
+                (car.y+50) < (item.y+60))
+                {
+                    pos=i;
+                }
+            }
+            }
+        if(pos !=6) arritem.splice(pos,1);
+        if(arritem.length == 3) {alert('You are winner!!! F5 Play again'); return;}
+        }
+
         function moveObj(){
            
             ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -116,32 +148,6 @@
             window.requestAnimationFrame(moveObj);
         }
 
-        function ruleGame(){
-        // Ăn bomb lose, Ăn 3 vàng win.
-            let pos=6;
-            let len = arritem.length;
-        for (let i = 0; i<len;i++){
-            let item=arritem[i];
-            
-            if(i<3){
-                //bomb
-                if((item.x-10) < (car.x+40) && (car.x+40) <(item.x+60) && (item.y-10) < (car.y+50) && (car.y+50) < (item.y+60))
-                {  
-                    alert('GameOver!!! F5 Play again!');
-                    return;
-                }
-            }else{
-                //coin
-                if((item.x-10) < (car.x+40) && (car.x+40) <(item.x+60) && (item.y-10) < (car.y+50) && (car.y+50) < (item.y+60))
-                {
-                    pos=i;
-                }
-            }
-            }
-        if(pos !=6) arritem.splice(pos,1);
-        if(arritem.length == 3) {alert('You are winner!!! F5 Play again'); return;}
-        }
-
         function playGame(){
         createItem();
         let start ;
@@ -151,7 +157,7 @@
         while (!start) 
         
         window.requestAnimationFrame(moveObj);
-    }
+        }
         playGame();   
 
         // window.onload = function {
